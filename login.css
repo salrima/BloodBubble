@@ -1,0 +1,169 @@
+body 
+{
+  font-family:sans-serif; 
+  color:whitesmoke;
+}
+
+
+.X{
+   background: #d80202ff;
+    min-height: 80px;
+    width:auto;
+    background-size: cover;
+    position: relative;
+    display:grid;
+    place-items: center;  
+}
+
+#TITLE{
+  font-size:25px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+
+
+.BACKG img{
+  position: absolute;
+  width:100%;
+  min-height: 200px;
+  width: 100;
+}
+h1{
+    text-align: center;
+}
+
+
+#formLog{
+    width:382px;
+    overflow:hidden;
+    height: 400px;
+    margin: auto; 
+    margin: 20 0 0 450px;
+    color:whitesmoke;
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(143, 139, 139);
+    border-radius: 12px;
+   
+    padding: 20px 25px;
+    opacity:80%;
+
+    position:relative;
+    top:30px;
+}
+
+/* input[type=text], input[type=password]{
+
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+  } */
+
+  /* input[type=checkbox]{
+  
+  } */
+
+  .inputTypeCheckBox{
+    width:20px;
+    height: 20px;
+  }
+
+  .inputType{
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+  }
+
+button {
+    background-color: #f72727;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 100%;
+    font-size: 18px;
+  }
+
+button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.headingsContainer{
+  border-top-left-radius: 12px;
+  left: 0px;
+  top: -1px;
+  display:grid;
+  place-items:center;
+ font-size:14px;
+  background-color:  #d80202ff;
+  position: absolute;
+  width: 100%;
+  height: 45px;
+  border-top-right-radius: 12px;
+}
+
+.headingsContainer p{
+    color: gray;
+}
+.mainContainer{
+  position: relative;
+  top:20px;
+    padding: 20px;
+}
+
+
+.subcontainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subcontainer a{
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+span.forgotpsd a {
+    float: right;
+    color: whitesmoke;
+    padding-top: 16px;
+  }
+
+.forgotpsd a{
+    color: rgb(0, 0, 0);
+  }
+  
+.forgotpsd a:link{
+    text-decoration: none;
+  }
+
+  .register{
+    color: white;
+    text-align: center;
+  }
+  
+  .register a{
+    color:rgb(0, 0, 0);
+  }
+  
+  .register a:link{
+    text-decoration: none;
+  }
+
+  /* Media queries for the responsiveness of the page */
+  @media screen and (max-width: 600px) {
+    form{
+      width: 25rem;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    form{
+      width: 20rem;
+    }
+  }

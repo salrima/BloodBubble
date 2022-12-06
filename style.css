@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: white;
+    min-height: 80px;
+    width: auto;
+    /* background-image: centre; */
+    /* background-size: cover; */
+    position: relative;
+    z-index:2;
+
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: centre;
+}
+
+nav img {
+    width: 125px;
+    height: auto;
+    left: 0px;
+    position: absolute;
+    top:1px;
+    left:20px;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+
+}
+
+.nav-links ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+
+}
+
+.nav-links ul li a {
+    color: black;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-decoration: none;
+    font: 13px;
+}
+
+.logo{
+    position: absolute;
+    width: 20px;
+    height: 10;
+    left: 28px;
+    top: 0px;
+}
+
+.footer {
+    background: rgb(83, 82, 82);
+    padding: 100px 0;
+    position: sticky;
+    top:100%;
+    margin-bottom:-100px;
+    min-height: 100%;
+}
+
+.foot_menu {
+    float: left;
+    width: 25%;
+}
+
+.foot_menu h3 {
+    font-size: 18px;
+    color: azure;
+}
+
+.foot_menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+}
+
+.foot_menu ul li a {
+    font-size: 18px;
+    line-height: 36px;
+    color: azure;
+
+}
+.social-icons{
+    margin-top: 30px;    
+}
+.social-icons i{
+    font-size: 22px;
+    margin: 10px;
+    cursor: pointer;
+    text-align:left;
+}
+.footer_social_media {
+    margin: 0;
+    padding: 0;
+}
+.footer_social_media li {
+    list-style: none;
+    display: inline-block;
+}
+.footer_social_media li {
+    font-size: 30px;
+    color: azure;
+    margin-right: 20px;
+}
+.footer_social_media li a:hover {
+    color: black;
+    text-decoration: none;
+}
+.copycont{
+    color: azure;
+    text-align: right;
+}
+a{
+    text-decoration:none;
+}
+img {
+    width: 125px;
+    height: auto;
+    left: 0px;
+    position:absolute;
+}
+
+#FooterForm input{
+    width: 250px;
+    height: 40px;
+    font-size:1rem;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    outline: none;
+    border: none;
+
+}
+#FooterForm button{
+
+    background-color: red;
+    border: 2px solid red;
+    color: #fff;
+    width:140px;
+    border-radius: 19px;
+    padding: 10px 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+body{
+    min-height: 100%;
+    
+}
+
+.HHOVER:hover{
+    background-color: #d80202ff;
+    color:white;
+}
