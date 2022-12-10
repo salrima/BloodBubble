@@ -1,31 +1,50 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLOODBUBBLE</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,600&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/11d397fc54.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forgotpass.css">
 
+</head>
 <body>
+  
     <header>
-        <nav>
-            <div class="nav-links">
-                <a class="active" href="index.html"><img src="logo.png"></a>
-                <ul>
-                    <li><a href="#" class="HHOVER">ABOUT US</a></li>
-                    <li><a href="#"class="HHOVER">LOOKING FOR BLOOD</a></li>
-                    <li><a href="#" class="HHOVER">DONATE BLOOD</a></li>
-                    <li><a href="#" class="HHOVER">BLOOD BANK LOGIN</a></li>
-                </ul>
-            </div>
-        </nav>
+      <nav>
+          <div class="nav-links">
+              <div class="logo"><img src="logo.png"></div>
+              <ul>
+                  <li><a href="#" class="HHOVER">ABOUT US</a></li>
+                  <li><a href="#"class="HHOVER">LOOKING FOR BLOOD</a></li>
+                  <li><a href="#" class="HHOVER">DONATE BLOOD</a></li>
+                  <li><a href="#" class="HHOVER">BLOOD BANK LOGIN</a></li>
+              </ul>
+          </div>
+      </nav>
     </header>
+
+    <from id="emailfrom">
+        <div class="forgotheading">
+            <div> <h3>Forgot Password</h3></div>
+            <div>Let us help you</div>
+         </div>
+    <br> <br>
+         <!-- Main container for all inputs -->
+         <div class="mainforgot">
+        
+             <label for="email">Email</label>
+             <br> 
+         <input class="inputType" type="password" placeholder="Enter password" name="pswrd" required>
+             <!-- Submit button -->
+             <br>
+             <button class="forgot" type="frgt">Send OTP</button>
+    
+         </div>
+    
+    </from>
+    
+    
 
     <footer>
         <div class="footer">
@@ -87,7 +106,5 @@
             </div>
         </div>
     </footer>
-   
-  </body>
-  </html>
-  
+    </body>
+    </html>

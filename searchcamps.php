@@ -15,13 +15,13 @@
     <script src="https://kit.fontawesome.com/11d397fc54.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/indexcss.css">
     <link rel="stylesheet" href="css/search.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="indexcss.css">
     <title>Donor registration</title>
 </head>
 
@@ -29,7 +29,7 @@
 <header>
     <nav>
         <div class="nav-links">
-            <div class="logo"><img src="images/withBackground (1).png"></div>
+            <div class="logo"><img src="withBackground (1).png"></div>
             <ul>
                 <li><a href="#" class="HHOVER">ABOUT US</a></li>
                 <li><a href="#"class="HHOVER">LOOKING FOR BLOOD</a></li>
@@ -61,7 +61,7 @@
 
      <br><br>
     <div class="container "style="background-color:gray; opacity:95%">
-    <h3 style="color:maroon;text-align:center">SEARCH A BLOOD BANK</h3>
+    <h3 style="color:maroon;text-align:center">SEARCH A BLOOD DONATION CAMPS</h3>
     <form action="" method="post"><br>
    
     <div class="row g-3 align-items-center">
@@ -107,7 +107,7 @@
           }
           else{
             echo"Connection was successful<br>";
-            $sql="SELECT * FROM `bloodbank` WHERE `district` = '$district' AND `state` = '$state'";
+            $sql="SELECT * FROM `camps` WHERE `district` = '$district' AND `state` = '$state'";
             $result=mysqli_query($conn,$sql);
             
            
@@ -118,14 +118,16 @@
                 <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Bloodbank Name</th>
-                    <th scope="col">Hospital Name</th>
+                    <th scope="col">Camp ID</th>
+                    <th scope="col">Camp Name</th>
+                    <th scope="col">Camp Date</th>
+                    <th scope="col">Start Time</th>
+                    <th scope="col">End Time</th>
+                    <th scope="col">Organization</th>
                     <th scope="col">Contact No</th>
-                    <th scope="col">Contact Person</th>
                     <th scope="col">Email</th>
                     <th scope="col">City</th>
-                    <th scope="col">District</th>
-                    <th scope="col">State</th>
+                    
                     <th scope="col">Click here to donate</th>
                   </tr>
                 </thead>
@@ -138,14 +140,16 @@
                     
                          <tr>
                    
-                 <td><?php echo $row['bb_name'];?></td>
-                 <td><?php echo $row['h_name'];?></td>
-                 <td><?php echo $row['contactno'];?></td>
-                  <td><?php echo $row['contactperson'];?></td>
-                  <td><?php echo $row['email'];?></td>
-                  <td><?php echo $row['City'];?></td>
-                 <td><?php echo $row['District'];?></td>
-                 <td><?php echo $row['State'];?></td>
+                 <td><?php echo $row['camp_id'];?></td>
+                 <td><?php echo $row['camp_name'];?></td>
+                 <td><?php echo $row['camp_date'];?></td>
+                  <td><?php echo $row['start_time'];?></td>
+                  <td><?php echo $row['end_time'];?></td>
+                  <td><?php echo $row['organization_name'];?></td>
+                 <td><?php echo $row['org_phno'];?></td>
+                 <td><?php echo $row['org_email'];?></td>
+                 <td><?php echo $row['City'];?></td>
+
                  <td><a href="bbdonation.php">Click here</td>
                  </tr>
     

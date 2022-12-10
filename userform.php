@@ -13,13 +13,18 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="indexcss.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/indexcss.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <SCRIPT src="formvalidation.js" of the External file> 
+    </SCRIPT>
     <title>User Registration</title>
 </head>
 
 <body>
+
+
+
 <header>
     <nav>
         <div class="nav-links">
@@ -27,7 +32,11 @@ session_start();
             <ul>
                 <li><a href="#" class="HHOVER">ABOUT US</a></li>
                 <li><a href="#"class="HHOVER">LOOKING FOR BLOOD</a></li>
-                <li><a href="#" class="HHOVER">DONATE BLOOD</a></li>
+                
+               
+                    <li><a href="#">DONATE BLOOD</a></li> 
+                    
+              
                 <li><a href="#" class="HHOVER">BLOOD BANK LOGIN</a></li>
             </ul>
         </div>
@@ -39,25 +48,25 @@ session_start();
     
     <div class="container" style="background-color:gray; opacity:95%"><br>
     <h3 style="color:maroon;text-align:center">REGISTRATION FORM</h3>
-    <form action="userspage.php" method="post">
+    <form action="userspage.php" onsubmit="return validateReqFields(this)" method="post">
     <div class="row g-3 align-items-center">
   <div class="col-auto">
     <label for="Fname" class="col-form-label">First name</label>
   </div>
   <div class="col-auto">
-    <input type="fname" name="fname" id="fname" class="form-control" required >
+    <input type="text" name="fname" id="fname" class="form-control" required >
   </div>
   <div class="col-auto">
     <label for="mname" class="col-form-label">Middle name</label>
   </div>
   <div class="col-auto">
-    <input type="mname" name="mname" id="mname" class="form-control" required>
+    <input type="text" name="mname" id="mname" class="form-control" required>
   </div>
   <div class="col-auto">
     <label for="lname" class="col-form-label">Last name</label>
   </div>
   <div class="col-auto">
-    <input type="lname" name="lname" id="lname" class="form-control" required>
+    <input type="text" name="lname" id="lname" class="form-control" required>
   </div>
 </div><br><br>
 <div class="row g-3 align-items-center">
@@ -68,17 +77,17 @@ session_start();
     <input type="username" name="uname" id="username" class="form-control"required >
   </div>
   <div class="col-auto">
-    <label for="Password" class="col-form-label">Password</label>
+    <label for="Password" class="col-form-label">Password   </label>
   </div>
     
-  <div class="col-auto">
+  <div class="col-auto" style="margin-left:2%">
     <input type="password" name="pass" id="password" class="form-control" aria-describedby="passwordHelpInline" required>
   </div>
   <div class="col-auto">
     <label for="email" class="col-form-label">Email</label>
   </div>
     
-  <div class="col-auto">
+  <div class="col-auto" style="margin-left:3%">
     <input type="email" name="email" id="email" class="form-control" required>
   </div>
     </div><br><br>
@@ -87,9 +96,9 @@ session_start();
     <label for="mobileno" class="col-form-label">Mobile No</label>
   </div>
   <div class="col-auto">
-    <input type="mobileno" name="mobileno" id="mobileno" class="form-control" required>
+    <input type="number" name="mobileno" id="mobileno" class="form-control" required>
   </div>
-  <div class="col-auto">
+  <div class="col-auto" style="margin-left:3%">
     <label for="gender" class="col-form-label">Gender</label>
   </div>
   <div class="col-auto">
@@ -107,7 +116,7 @@ session_start();
     <label for="age" class="col-form-label">Age</label>
   </div>
   <div class="col-auto">
-    <input type="age" name="age" id="age" class="form-control" required>
+    <input type="number" name="age" id="age" class="form-control" required>
   </div>
  
     </div><br><br>

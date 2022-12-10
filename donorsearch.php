@@ -7,10 +7,11 @@ session_start();
 <?php
       
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-        
+          $disease=$_POST['diseases'];
           $bgroup=$_POST['bgroup'];
           $uname=$_SESSION['uname'];
             // $pass=$_POST['pass'];
+           
 
           $servername="localhost";
           $username="root";
@@ -24,7 +25,7 @@ session_start();
           }
           else{
             echo"Connection was successful<br>";
-            $sql="INSERT INTO `donor`(`donor_id`, `Username`,`bloodgroup`) VALUES ('','$uname','$bgroup')";
+            $sql="INSERT INTO `donor`(`donor_id`, `Username`, `diseases`, `bloodgroup`) VALUES ('','$uname','$disease','$bgroup')";
             $result=mysqli_query($conn,$sql);
             
            
@@ -61,19 +62,30 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,600&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/11d397fc54.js" crossorigin="anonymous"></script>
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/indexcss.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Donor registration</title>
 </head>
 
 <body>
-  <?php include "php/_nav.php"?>
-
+<header>
+    <nav>
+        <div class="nav-links">
+            <div class="logo"><img src="withBackground (1).png"></div>
+            <ul>
+                <li><a href="#" class="HHOVER">ABOUT US</a></li>
+                <li><a href="#"class="HHOVER">LOOKING FOR BLOOD</a></li>
+                <li><a href="#" class="HHOVER">DONATE BLOOD</a></li>
+                <li><a href="#" class="HHOVER">BLOOD BANK LOGIN</a></li>
+            </ul>
+        </div>
+    </nav>
+  </header>
   <div class="X">
     <div id="TITLE"></div>
     <script>
@@ -95,26 +107,7 @@ session_start();
      </div>
 
      <br><br>
-    <div class="container "style="background-color:gray; opacity:95%">
-    <h3 style="color:maroon;text-align:center">DONOR REGISTRATION FORM</h3>
-    <form action="donorsearch.php" method="POST"><br>
-    <div class="row g-3 align-items-center">
-  <div class="col-auto" style="margin-left:30%">
-    <label for="bgroup" class="col-form-label">Blood Group</label>
-  </div> 
-  <div class="col-auto">
-    <input type="text" name="bgroup" id="bgroup" class="form-control" required >
-  </div>
-  
-</div><br><br>
-    <div class="d-grid gap-2 col-2 mx-auto">
-  <button class="btn btn-success" type="submit">Submit</button>
- 
-</div>
-</div>
-
-</form>
-    </div><br><br>
+   
      
     <div class="row">
   <div class="col-sm-6">

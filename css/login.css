@@ -167,3 +167,7 @@ span.forgotpsd a {
       width: 20rem;
     }
   }
+
+  .card-body h5, .card-body p{
+    color:black;
+  }

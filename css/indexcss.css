@@ -1,0 +1,25 @@
+a.active,a:hover{
+    background: rgb(236, 85, 85);
+    transition: 0.5s;
+    /* width: 100%; */
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fa7672;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  a{
+    background-color: rgb(252, 241, 241);
+    color: black;
+  }
+  .tab1 {
+    tab-size: 2;
+}

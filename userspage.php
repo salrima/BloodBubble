@@ -62,14 +62,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="indexcss.css">
+    <link rel="stylesheet" href="css/indexcss.css">
     <title>User</title>
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg" style="background-color: rgb(143, 12, 12)">
 
-<img src="withBackground (1).png" width="80" height="80" alt="">
+<img src="images/withBackground (1).png" width="80" height="80" alt="">
 &emsp;
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -143,14 +143,14 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="human-blood-donate-white-background_1308-110835.jpg" alt="First slide"
+                <img class="d-block w-100" src="images/BANNER1.svg" alt="First slide"
                     width="10" height="300">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="donating-blood-banner.jpg" alt="Second slide" width="10" height="300">
+                <img class="d-block w-100" src="images/donating-blood-banner.jpg" alt="Second slide" width="10" height="300">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="blood-donation-1654774436-1663244615.webp" alt="Third slide" width="10"
+                <img class="d-block w-100" src="images/camp5.jpg" alt="Third slide" width="10"
                     height="300" s>
             </div>
         </div>
@@ -177,15 +177,16 @@
                 </div>
             </div>
             <div class="col-4">
-                <img src="gh-blood-type-chart-1596206816.png" width=300 height=500 alt="">
-            </div>
+            <img class="d-block w-100" src="images/camp3.jpg" alt="Second slide" width="10" height="300">
+    </div>
             <div class="col-4">
                 <div class="card" style="width: 25rem;">
                     <img src="BANNER1.svg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">BLOOD DONATION CAMP</h5>
                         <p class="card-text">Go and register now as a donor to take part in this blood donation camp</p>
-                        <a href="userform.php" class="btn btn-danger">Register</a>
+                        <a href="donorregistration.php" class="btn btn-danger">Register as donor</a>
+                        <a href="#" class="btn btn-danger">Donate now</a>
                     </div>
                 </div>
 
@@ -195,27 +196,18 @@
 
     </div>
     <br><br>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body btn-secondary">
-                    <h5 class="card-title btn-danger"><b>WANT BLOOD? NO WORRIES </b></h5>
-                    <p class="card-text">Register and find blood stock in the nearby blood banks.</p>
-                    <a href="userform.php" class="btn btn-danger">Register</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card ">
-                <div class="card-body btn-secondary">
-                    <h5 class="card-title btn-danger">DONATE BLOOD,SAVE LIFE</h5>
-                    <p class="card-text ">Check the eligibility criteria, donation process and register to donate blood
-                    </p>
-                    <a href="userform.php" class="btn btn-danger">Register</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="card">
+  <div class="card-header">
+    Register and search for blood stock
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Receive Blood</h5>
+    <p class="card-text">Search for blood stock and help save your loved ones.</p>
+    <a href="#" class="btn btn-danger">Register as receiver</a>
+    <a href="#" class="btn btn-danger">Request blood</a>
+  </div>
+</div>
+
    
  
 

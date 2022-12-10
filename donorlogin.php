@@ -1,47 +1,6 @@
 <?php
-    session_start();
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
-        // $disease=$_POST['diseases'];
-        // $bgroup=$_POST['bgroup'];
-        $uname=$_POST['uname'];
-        $pass=$_POST['pass'];
-        
-
-        include "php/_connect.php";
-
-        if(!$conn)
-        {
-            die("Sorry we failed to connect:". mysqli_connect_error());
-        }
-        else{
-        echo"Connection was successful<br>";
-        $sql="SELECT * FROM `user` WHERE `Username` = '$uname' AND `Password` = '$pass'";
-        $result=mysqli_query($conn,$sql);
-        
-        
-        if(mysqli_num_rows($result)==1)
-        {
-            $_SESSION['uname']=$uname;
-            // $_SESSION['diseases']=$disease;
-            // $_SESSION['bloodgroup']=$bgroup;
-            // $sql2="INSERT INTO `donor`(`donor_id`, `Username`, `diseases`, `bloodgroup`) VALUES ('','$uname','$disease','$bgroup')";
-            // $result2=mysqli_query($conn,$sql2);
-            // header('location:donorregistration.php');
-            //<meta http-equiv="refresh" content="0; url=http://localhost/sal/donorregistration.php"/>
-            //<?php
-            header('location: index.php');
-
-        }
-        else{
-            echo"login failed! ENTER VALID USERNAME AND PASSWORD";
-            // header('location:login.php');
-        }
-        }
-    }
-
-    ?>
-
-
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -57,7 +16,19 @@
 
 <body>
   
-    <?php include "php/_nav.php"?>
+  <header>
+    <nav>
+        <div class="nav-links">
+            <div class="logo"><img src="logo.png"></div>
+            <ul>
+                <li><a href="#" class="HHOVER">ABOUT US</a></li>
+                <li><a href="#"class="HHOVER">LOOKING FOR BLOOD</a></li>
+                <li><a href="#" class="HHOVER">DONATE BLOOD</a></li>
+                <li><a href="#" class="HHOVER">BLOOD BANK LOGIN</a></li>
+            </ul>
+        </div>
+    </nav>
+  </header>
 
 
 
@@ -73,7 +44,7 @@
        }
        else
        {
-        document.getElementById("TITLE").innerHTML="DONATE BLOOD, SAVE LIFE";
+        document.getElementById("TITLE").innerHTML="RENZA";
         i--;
        }
       
@@ -81,7 +52,7 @@
      
     </script>
      </div>
-     <div class="BACKG"> <img src="images/BB.jpg" height=100% width=100%> </div>
+     <div class="BACKG"> <img src="BB.jpg" height=100% width=100%> </div>
  
 
 
@@ -92,7 +63,7 @@
         <div class="headingsContainer">
            <div> <h3>DONAR LOGIN</h3></div>
         </div>
-        <form action="" id="formLog" method="post">
+        <form action="donorregistration.php" id="formLog" method="post">
         <!-- Main container for all inputs -->
         <div class="mainContainer">
             <!-- Username -->
@@ -113,7 +84,7 @@
                 <label>
                   <input class="inputTypeCheckBox" type="checkbox"  name="remember"> Remember me
                 </label>
-                <p class="forgotpsd"> <a href="fogotpass.php">Forgot Password?</a></p>
+                <p class="forgotpsd"> <a href="#">Forgot Password?</a></p>
             </div>
 
 
