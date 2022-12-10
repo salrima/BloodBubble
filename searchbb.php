@@ -63,30 +63,27 @@
     <div class="container "style="background-color:gray; opacity:95%">
     <h3 style="color:maroon;text-align:center">SEARCH A BLOOD BANK</h3>
     <form action="" method="post"><br>
-   
-    <div class="row g-3 align-items-center">
-  <div class="col-auto" style="margin-left:90px">
-    <label for="district" class="col-form-label">District</label>
-  </div>
-  <div class="col-auto">
-    <input type="district" name="district" id="district" class="form-control" required >
-  </div>
-  
-  <div class="col-auto" style="margin-left:250px">
-    <label for="state" class="col-form-label">State</label>
-  </div>
-  <div class="col-auto">
-    <input type="state" name="state" id="state" class="form-control" required >
-  </div>
+      <div class="row g-3 align-items-center">
+      <div class="col-auto" style="margin-left:90px">
+        <label for="district" class="col-form-label">District</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" name="district" id="district" class="form-control" required >
+      </div>
+      <div class="col-auto">
+        <label for="state" class="col-form-label">State</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" name="state" id="state" class="form-control" required >
+      </div>
  
-</div><br><br>
-    <div class="d-grid gap-2 col-2 mx-auto">
-  <button class="btn btn-success" type="submit">search</button>
+      </div><br><br>
+        <div class="d-grid gap-2 col-2 mx-auto">
+        <button class="btn btn-success" type="submit">search</button>
  
-</div>
-</div>
-
-</form>
+      </div>
+    </div>
+  </form>
     </div><br><br>
 
     <?php
