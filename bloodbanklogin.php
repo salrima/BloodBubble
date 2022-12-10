@@ -18,19 +18,8 @@
 </head>
 
 <body background="blood_types.jpg">
-  <header>
-    <nav>
-      <div class="nav-links">
-        <div class="logo"><img src="withBackground (1).png"></div>
-        <ul>
-          <li><a href="#" class="HHOVER">ABOUT US</a></li>
-          <li><a href="#" class="HHOVER">LOOKING FOR BLOOD</a></li>
-          <li><a href="#" class="HHOVER">DONATE BLOOD</a></li>
-          <li><a href="#" class="HHOVER">BLOOD BANK LOGIN</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <?php include "php/_nav.php"?>
+
   <div class="X">
     <div id="TITLE"></div>
     <script>
@@ -49,8 +38,6 @@
 
     </script>
   </div>
-
-
 
 
 
@@ -100,14 +87,14 @@
         </div>
 
         <div class="col-auto">
-          <input type="number" name="contactno" id="contactno" class="form-control" required>
+          <input type="text" name="contactno" id="contactno" class="form-control" oninput="this.value=this.value.replace(/[^0-9]/g,'')" required>
         </div>
       </div><br><br>
-      <div class="mb-3">
+      <div class="mb-3" style="width:30%; margin-right:auto">
         <label for="email" class="form-label">Email</label>
         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-
-      </div><br><br>
+      </div>
+      <br><br>
 
 
       <div class="row g-3 align-items-center">
