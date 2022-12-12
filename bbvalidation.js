@@ -5,30 +5,30 @@ function validateReqFields(thisform)
 	var uname=thisform.uname.value; 
 	var pass=thisform.pass.value; 
 	var cp=thisform.contactp.value; 
-    if(!isNaN(fname)) 
+    if(!isNaN(bname)) 
 	{ 
 		alert("Invalid Blood Bank name, should contain alphabets only"); 
 		thisform.fname.focus(); 
 		return false; 
 	} 
-	if(uname=="")
-	{
-		alert("Please enter the user name"); 
-		thisform.uname.focus();
-		return false;
-	}
+	// if(uname=="")
+	// {
+	// 	alert("Please enter the user name"); 
+	// 	thisform.uname.focus();
+	// 	return false;
+	// }
 	if(uname.length<6) 
 	{
 		alert("User name must be of atleast six characters");
 		thisform.uname.focus();
 		return false;
 	} 
-	if(pass=="") 
-	{
-		alert("Please enter the password"); 
-		thisform.pass.focus(); 
-		return false;
-	}
+	// if(pass=="") 
+	// {
+	// 	alert("Please enter the password"); 
+	// 	thisform.pass.focus(); 
+	// 	return false;
+	// }
 	if(pass.length<8)
 	{ 
 		alert("Password must contain atleast 8 digits"); 
@@ -48,12 +48,12 @@ function validateReqFields(thisform)
 		return false; 
 	} 
   var cno=thisform.contactno.value; 
-	if(cno==null||cno=="") 
-	{ 
-		alert("enter the contact number"); 
-		thisform.congtactno.focus(); 
-		return false; 
-	} 
+	// if(cno==null||cno=="") 
+	// { 
+	// 	alert("enter the contact number"); 
+	// 	thisform.congtactno.focus(); 
+	// 	return false; 
+	// } 
 	if(cno.length<10) 
 	{ 
 		alert("contact number must have atleast 10 digits"); 
@@ -66,10 +66,6 @@ function validateReqFields(thisform)
 		thisform.contactno.focus(); 
 		return false; 
 	} 
-    
-	
-
-
 
 	return true;
  }

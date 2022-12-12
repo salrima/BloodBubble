@@ -118,7 +118,7 @@
 
 
             <!-- Submit button -->
-            <button type="submit">Login</button>
+            <input type="submit" value="Login">
 
             <!-- Sign up link -->
             <p class="register">Not a member?  <a href="userform.php">Register here!</a></p>
