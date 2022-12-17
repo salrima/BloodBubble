@@ -53,19 +53,19 @@ function validateReqFields(thisform)
 	if(ph==null||ph=="") 
 	{ 
 		alert("enter the phone number"); 
-		thisform.phnum.focus(); 
+		thisform.mobileno.focus(); 
 		return false; 
 	} 
 	if(ph.length<10) 
 	{ 
 		alert("phone number must have atleast 10 digits"); 
-		thisform.phnum.focus(); 
+		thisform.mobileno.focus(); 
 		return false; 
 	} 
 	if(isNaN(ph)) 
 	{ 
 		alert("Invalid phone number, should contain numbers only"); 
-		thisform.phnum.focus(); 
+		thisform.mobileno.focus(); 
 		return false; 
 	} 
     

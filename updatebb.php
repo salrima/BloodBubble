@@ -1,7 +1,7 @@
 <?php
-if(isset($_POST['cid']))
+if(isset($_POST['bid']))
 {
- $cid=$_POST['cid'];
+ $bid=$_POST['bid'];
 }
 session_start();
 //echo"welcome".$_SESSION['uname'];
@@ -84,8 +84,8 @@ session_start();
                
    ?>
         <div class="container " style="background-color:gray; opacity:95%">
-    <h3 style="color:maroon;text-align:center">BLOOD BANK REGISTRATION FORM</h3>
-    <form action="" method="post"><br>
+    <h3 style="color:maroon;text-align:center">BLOOD BANK</h3>
+    <form action="updatebb.php" method="post"><br>
       <div class="row g-3 align-items-center">
         <div class="col-auto">
           <label for="bbname" class="col-form-label">Bloodbank name</label>
@@ -160,7 +160,7 @@ session_start();
   </div>   
           
 
-        
+  <?php include "php/_footer.php"?>
 
 
     <!-- Optional JavaScript -->

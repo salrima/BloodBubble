@@ -7,7 +7,7 @@ session_start();
 <?php
       
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-          $disease=$_POST['diseases'];
+         
           $bgroup=$_POST['bgroup'];
           $uname=$_SESSION['uname'];
             // $pass=$_POST['pass'];
@@ -25,7 +25,7 @@ session_start();
           }
           else{
             echo"Connection was successful<br>";
-            $sql="INSERT INTO `donor`(`donor_id`, `Username`, `diseases`, `bloodgroup`) VALUES ('','$uname','$disease','$bgroup')";
+            $sql="INSERT INTO `donor`(`donor_id`, `Username`, `bloodgroup`) VALUES ('','$uname','$bgroup')";
             $result=mysqli_query($conn,$sql);
             
            
@@ -118,7 +118,7 @@ session_start();
     </div>
   </div>
 </div>
-    
+<?php include "php/_footer.php"?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

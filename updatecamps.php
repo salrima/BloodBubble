@@ -1,10 +1,10 @@
 <?php
-if(isset($_POST['cid']))
-{
- $cid=$_POST['cid'];
-}
+// if(isset($_POST['cid']))
+// {
+//  $cid=$_POST['cid'];
+// }
 session_start();
-//echo"welcome".$_SESSION['uname'];
+echo"welcome".$_SESSION['cid'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -64,8 +64,6 @@ session_start();
 
    
     <?php
-     
-       
           $servername="localhost";
           $username="root";
           $password="";
@@ -81,7 +79,7 @@ session_start();
             $result=mysqli_query($conn,$sql);
                 $row=mysqli_fetch_array($result);
           }
-               
+       
    ?>
            
           
@@ -197,7 +195,7 @@ session_start();
 </form>
     </div>
    
-
+    <?php include "php/_footer.php"?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

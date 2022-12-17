@@ -1,0 +1,135 @@
+.neonText {
+  animation: flicker 1.5s infinite alternate;
+  color: yellow;
+}
+
+h1 {
+  font-size: 4.2rem;    
+}
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px rgb(255, 236, 236),
+      0 0 11px rgb(252, 240, 240),
+      0 0 19px rgb(250, 231, 231),
+      0 0 40px rgb(253, 94, 73),
+      0 0 80px rgb(240, 146, 198),
+      0 0 90px rgb(243, 162, 196),
+      0 0 100px rgb(235, 72, 153),
+      0 0 150px rgb(243, 1, 122);
+  
+  }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
+}
+.headingtxt{
+position:absolute;
+top:0px;
+
+width:100%;
+
+
+}
+.text-center {
+  text-align: center!important;
+  position: relative;
+  top: 90px;
+  left: 20px;
+}
+
+
+h1{
+  padding:0;
+  margin:0;
+
+  height:150px;
+  color: yellow;
+  font-size: medium;
+font-weight: bold;
+  text-align: center;
+background-color:  #ff9292ff;
+}
+.Htext{
+ 
+  top:0px;
+  left:0px;
+  font-weight: bold;
+  text-align: center;
+
+}
+#txt2{
+  position:relative;
+  top: -96px;
+  right:0px;
+  color:white;
+
+}
+
+.roundingimg img{
+  border-radius:50%;
+}
+
+.container-fluid {
+  min-width: 100%;
+  
+  height:500px;
+
+}
+.card img{
+  height:50%;
+  width:50%;
+  border-radius: 50%;
+
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 83px;
+}
+.card{
+  padding: 35px;
+}
+.h-100{
+  
+  position: relative;
+    top: -319px;
+    right:0px;
+    max-width:80%;
+    height: 100%!important;
+}
+.card-title{
+  position:relative;
+  
+     
+      margin-bottom: 0.75rem;
+      top: 55px;
+
+}
+.card-text{
+  color:red;
+  position:relative;
+
+  top: 48px;
+}
+.card-img-top{
+  position:relative;
+  width:50%;
+  height:50%;
+}
+.row{
+ 
+  margin-right: -42px;
+  margin-left: 113px;
+}
+.formcheck{
+
+  position: relative;
+    top: -199px;
+    display: block;
+    padding-left: 32.25rem;
+}
+
+

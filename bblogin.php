@@ -1,4 +1,27 @@
+<?php
+    session_start();
+    include "php/_connect.php";
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        if(isset($_POST['login']))
+        {
+            $uname=$_POST['uname'];
+            $pass=$_POST['pass'];
 
+            $sql="SELECT * FROM `bloodbank` WHERE `Username` = '$uname' AND `password` = '$pass'";
+            $result=mysqli_query($conn,$sql);
+            
+            if(mysqli_num_rows($result)==1)
+            {
+                $row=mysqli_fetch_array($result);
+                $_SESSION['bid']=$row['bloodbank_id'];
+                header("location: admin.php");
+            }
+            else{
+                echo"login failed! ENTER VALID USERNAME AND PASSWORD";
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -15,9 +38,6 @@
 <body>
   
     <?php include "php/_nav.php"?>
-
-
-
 
   <div class="X">
     <div id="TITLE"></div>
@@ -50,7 +70,7 @@
         <div class="headingsContainer">
            <div> <h3>DONAR LOGIN</h3></div>
         </div>
-        <form action="admin.php" id="formLog" method="post">
+        <form action="" id="formLog" method="post">
         <!-- Main container for all inputs -->
         <div class="mainContainer">
             <!-- Username -->

@@ -1,64 +1,24 @@
-
 <?php
+    session_start();
+    include "php/_connect.php";
 
-session_start();
-//echo"welcome".$_SESSION['uname'];
+    // echo"welcome".$_SESSION['bid'];
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+        if($_POST['donated']){
+            $did=$_POST['did'];
+            $sql="UPDATE `donates_bb` SET `status`='Donated' WHERE `donor_id`='$did'";
+            mysqli_query($conn,$sql);
+        }
+    }
 ?>
 <!doctype html>
 <html lang="en">
-<?php
-
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
-        // $disease=$_POST['diseases'];
-        // $bgroup=$_POST['bgroup'];
-        $uname=$_POST['uname'];
-        $pass=$_POST['pass'];
-        
-
-        include "php/_connect.php";
-
-        if(!$conn)
-        {
-            die("Sorry we failed to connect:". mysqli_connect_error());
-        }
-        else{
-      
-        $sql="SELECT * FROM `bloodbank` WHERE `Username` = '$uname' AND `password` = '$pass'";
-        $result=mysqli_query($conn,$sql);
-        
-        
-        if(mysqli_num_rows($result)==1)
-        {
-           
-            $_SESSION['uname']=$uname;
-            // $_SESSION['diseases']=$disease;
-            // $_SESSION['bloodgroup']=$bgroup;
-            // $sql2="INSERT INTO `donor`(`donor_id`, `Username`, `diseases`, `bloodgroup`) VALUES ('','$uname','$disease','$bgroup')";
-            // $result2=mysqli_query($conn,$sql2);
-            // header('location:donorregistration.php');
-            //<meta http-equiv="refresh" content="0; url=http://localhost/sal/donorregistration.php"/>
-            //<?php
-            $row=mysqli_fetch_array($result);
-       
-            $bid= $row['bloodbank_id'];
-            
-
-        }
-        else{
-            echo"login failed! ENTER VALID USERNAME AND PASSWORD";
-            //header('location:login.php');
-        }
-        }
-    }
-
-    ?>
-
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,600&display=swap"
@@ -75,68 +35,197 @@ session_start();
 </head>
 
 <body style="background-color:#cc0000">
-<header>
+    <header>
         <nav>
             <div class="nav-links">
                 <div class="logo"><img src="images/withBackground (1).png"></div>
                 <ul>
-                   
                     <li><a href="#" class="HHOVER">ABOUT US</a></li>
-                  
-                   
                     <li><a href="php/_logout.php" class="HHOVER">LOG OUT</a></li>
-                  
                 </ul>
             </div>
         </nav>
     </header>
     <br><br>
 
-<div class="btn-group" role="group" aria-label="Basic example" style="margin-left:25%" >
-  <a href="campregistration.php" class="btn btn-primary">Add camps</a>
+    <div class="btn-group" role="group" aria-label="Basic example" style="margin-left:25%">
+        <a href="campregistration.php" class="btn btn-primary">Add camps</a>
+        <a href="admincamps.php" class="btn btn-secondary">search camps</a>
+        <a href="admindonors.php" class="btn btn-success">search donor</a>
+        <a href="adminreceivers.php" class="btn btn-danger">search receivers</a>
+        <a href="updatebb.php" class="btn btn-dark">Edit BB Details</a>
 
-  <form href="admincamps.php" method="post">
-  <input type="hidden" name="bloodbank" value=<?php echo $bid;?>>
-  <input class="btn btn-success" type="submit" value="search camps"></input>
-  </form>
+        <!-- <form href="admincamps.php" method="post"> -->
+        <!-- <input type="hidden" name="bloodbank" value=<?php //echo $bid;?>> -->
+        <!-- <input class="btn btn-success" type="submit" value="search camps">
+  </form> -->
 
-  <form href="admindonors.php" method="post">
-  <input type="hidden" name="bloodbank" value=<?php echo $bid;?>>
-  <input class="btn btn-success" type="submit" value="search donor"></input>
-  </form>
+        <!-- <form href="admindonors.php" method="post"> -->
+        <!-- <input type="hidden" name="bloodbank" value=<?php //echo $bid;?>> -->
+        <!-- <input class="btn btn-success" type="submit" value="search donor">
+  </form> -->
 
-  <form href="campregistration.php" method="post">
-  <input type="hidden" name="bloodbank" value=<?php echo $bid;?>>
-  <input class="btn btn-success" type="submit" value="Search receivers"></input>
-  </form>
+        <!-- <form href="campregistration.php" method="post"> -->
+        <!-- <input type="hidden" name="bloodbank" value=<?php //echo $bid;?>> -->
+        <!-- <input class="btn btn-success" type="submit" value="Search receivers">
+  </form> -->
 
-  <form href="updatebb.php" method="post">
-  <input type="hidden" name="bloodbank" value=<?php echo $bid;?>>
-  <input class="btn btn-dark" type="submit" value="Edit BB Details" ></input>
-  </form>
-  
-</div><br><br>
+        <!-- <form href="updatebb.php" method="post"> -->
+        <!-- <input type="hidden" name="bloodbank" value=<?php //echo $bid;?>> -->
+        <!-- <input class="btn btn-dark" type="submit" value="Edit BB Details" >
+  </form> -->
+
+    </div>
+
+    <br><br>
     <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Search for a BLOOD BANK</h5>
-        <p class="card-text">Search for a blood bank and book a date to donate blood.</p>
-        <a href="searchbb.php" class="btn btn-danger">Search Bloodbank</a>
-      </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title btn-light" style="text-align:center"><b>DONORS FOR THE DAY </b></h5>
+                    <?php
+                        // $sql="SELECT * FROM `donates_bb` NATURAL JOIN `donor` WHERE `bloodbank_id`='{$_SESSION['bbid']}' AND `status`='' AND `donation_date`='current_date()'";
+                        $sql="SELECT * FROM `donates_bb` NATURAL JOIN `donor` WHERE `bloodbank_id`=157 AND `donation_date`=current_date() AND `status`='Not Donated';";
+                        $result=mysqli_query($conn,$sql);
+
+                        if(mysqli_num_rows($result)>0)
+                        {
+                            while($row=mysqli_fetch_array($result)){
+                                ?>
+                                <form action="" method="post">
+                                    <input type="hidden" name="did" value=<?php echo $row['donor_id']?>>
+                                    <label>
+                                        <?php echo $row['Username']?>
+                                    </label>
+                                    <input type="submit" class="btn btn-success" name="donated" value="Donated!"
+                                        style="margin-left:4%"><br><br>
+                                </form>
+                                <?php
+                            }
+                        }
+                        else{
+                            echo "No Donor for the day JUST CHILL!!";
+                        }
+                        
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title btn-light" style="text-align:center"><b>RECEIVERS FOR THE DAY </b></h5>
+                    <?php
+                        // $sql="SELECT * FROM `donates_bb` NATURAL JOIN `donor` WHERE `bloodbank_id`='{$_SESSION['bbid']}' AND `status`='' AND `donation_date`='current_date()'";
+                        $sql2="SELECT * FROM `request` NATURAL JOIN `receiver` NATURAL JOIN `bloodgroup` WHERE `bloodbank_id`=157 AND `status`='' AND quantity>=qnty AND `blood_type`=`bloodtype` AND `rdate`=current_date();
+                        ";
+                        $result2=mysqli_query($conn,$sql2);
+
+                        if(mysqli_num_rows($result2)>0)
+                        {
+                            while($row=mysqli_fetch_array($result2)){
+                                ?>
+                    <form action="" method="post">
+                        <input type="hidden" name="did" value=<?php echo $row['receiver_id']?>>
+                        <label>
+                            <?php echo $row['Username']?>
+                        </label>
+                        <input type="submit" class="btn btn-success" name="Request Granted" value="request Granted"
+                            style="margin-left:4%">
+                    </form>
+                    <?php
+                            }
+                        }
+                        else{
+                            echo "No Donor for the day JUST CHILL!!";
+                        }
+                        
+                    ?>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Search for CAMPS </h5>
-        <p class="card-text">Search for blood donation camps near you and donatev blood.</p>
-        <a href="searchcamps.php" class="btn btn-danger">Search Camps</a>
-      </div>
+    <br><br>
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title btn-light" style="text-align:center"><b>UPCOMING CAMPS </b></h5>
+                <?php
+                    // $sql="SELECT * FROM `donates_bb` NATURAL JOIN `donor` WHERE `bloodbank_id`='{$_SESSION['bbid']}' AND `status`='' AND `donation_date`='current_date()'";
+                    $sql2="SELECT * FROM `camps` WHERE `bloodbank_id`=157 AND month(camp_date)=month(current_date());
+                    ";
+                    $result2=mysqli_query($conn,$sql2);
+
+                    if(mysqli_num_rows($result2)>0)
+                    {
+                        ?>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                
+                                    <th scope="col">Camp Name</th>
+                                    <th scope="col">Camp Date</th>
+                                    <th scope="col">Start Time</th>
+                                    <th scope="col">End Time</th>
+                                    <th scope="col">Contact No</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">City</th>
+
+                                
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                            while($row=mysqli_fetch_array($result2)){
+                            ?>
+                                <tr>
+
+                            
+                                    <?php echo $row['camp_name'];?>
+                                </td>
+                                <td>
+                                    <?php echo $row['camp_date'];?>
+                                </td>
+                                <td>
+                                    <?php echo $row['start_time'];?>
+                                </td>
+                                <td>
+                                    <?php echo $row['end_time'];?>
+                                </td>
+                                <td>
+                                    <?php echo $row['org_phno']?>
+                                </td>
+                                <td>
+                                    <?php echo $row['org_email'];?>
+                                </td>
+                                <td>
+                                    <?php echo $row['City'];?>
+                                </td>
+
+                            </tr>
+
+                        <form action="" method="post">
+                            <input type="hidden" name="did" value=<?php echo $row['camp_id']?>>
+                            <input type="submit" class="btn btn-success" name="Successful" value="Camp Successful"
+                                style="margin-left:4%">
+                        </form>
+                        <?php
+                            }
+                        }
+                        else{
+                            echo "No Donor for the day JUST CHILL!!";
+                        }
+                        
+                    ?>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-    
+    </div>
+    <?php
+        mysqli_close($conn);
+        include "php/_footer.php";
+    ?>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -149,6 +238,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>

@@ -10,19 +10,7 @@
 </head>
 <body>
   
-    <header>
-      <nav>
-          <div class="nav-links">
-              <div class="logo"><img src="logo.png"></div>
-              <ul>
-                  <li><a href="#" class="HHOVER">ABOUT US</a></li>
-                  <li><a href="#"class="HHOVER">LOOKING FOR BLOOD</a></li>
-                  <li><a href="#" class="HHOVER">DONATE BLOOD</a></li>
-                  <li><a href="#" class="HHOVER">BLOOD BANK LOGIN</a></li>
-              </ul>
-          </div>
-      </nav>
-    </header>
+<?php include "php/_nav.php"?>
 
     <from id="emailfrom">
         <div class="forgotheading">
@@ -35,7 +23,7 @@
         
              <label for="email">Email</label>
              <br> 
-         <input class="inputType" type="password" placeholder="Enter password" name="pswrd" required>
+         <input class="inputType" type="email" placeholder="Enter Email" name="email" required>
              <!-- Submit button -->
              <br>
              <button class="forgot" type="frgt">Send OTP</button>
@@ -46,65 +34,6 @@
     
     
 
-    <footer>
-        <div class="footer">
-    
-            <div class="container">
-                <div class="foot_menu">
-                    <h3>LOOKING FOR BLOOD</h3>
-                    <ul>
-                        <li><a href="#">Blood Availability</a></li>
-                        <li><a href="#">Blood Bank</a></li>
-                        <li><a href="#">Directory</a></li>
-                        <li><a href="#">Request</a></li>
-                    </ul>
-                </div>
-                <div class="foot_menu">
-                    <h3>WANT TO DONATE BLOOD</h3>
-                    <ul>
-                        <li><a href="#">Blood Donation Camp</a></li>
-                        <li><a href="#">Donor Login</a></li>
-                        <li><a href="#">Voluntary Donor Group</a></li>
-                        <li></li>
-                    </ul>
-                </div>
-  
-                <div class="foot_menu">
-                    <h3>NEWSLETTER</h3>
-                    <form id="FooterForm">
-                        <input type="email" placeholder="Enter your email address" required>
-                        <br>
-                        <button type="SUBMIT">SUBSCRIBE</button>
-                    </form>
-                </div>
-                <div class="foot_menu">
-                    <h3>ABOUT US</h3>
-                    <ul>
-                        <li><a href="#" >About BLOODBUBBLE</a></li>
-                        <li><a href="#">BLOODBUBBLE FAQs</a></li>
-                        <li><a href="#">Notifications</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-  
-  
-            </div>
-            <div class="clear"></div>
-            <div class="social-icons">
-                <ul class="footer_social_media">
-                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-  
-                </ul>
-  
-  
-  
-            </div>
-            <div class="half">
-                <p class="copycont">Copyright &copy; 2022. All rights reserved</p>
-            </div>
-        </div>
-    </footer>
+    <?php include "php/_footer.php"?>
     </body>
     </html>

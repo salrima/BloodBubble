@@ -1,9 +1,42 @@
 <?php
-if(isset($_POST['bloodbank']))
-{
-    $bid=$_POST['bloodbank'];
+// if(isset($_POST['bloodbank']))
+// {
+//     $bid=$_POST['bloodbank'];
+// }
+  session_start();
+  // echo $_SESSION['uname'];
+  if($_SERVER['REQUEST_METHOD'] == "POST"){
+    // $disease=$_POST['diseases'];
+    // $bgroup=$_POST['bgroup'];
+    if(isset($_POST['Searchcamp']))
+    {
+        $camp=$_POST['camp'];
+        include "php/_connect.php";
+
+        if(!$conn)
+        {
+            die("Sorry we failed to connect:". mysqli_connect_error());
+        }
+        else{
+    
+            $sql="SELECT * FROM `camps` WHERE `camp_name`=$camp";
+            $result=mysqli_query($conn,$sql);
+            
+            
+            if(mysqli_num_rows($result)==1)
+            {
+
+                $row=mysqli_fetch_array($result);
+                $_SESSION['cid']=$row['camp_id'];
+                header('location: updatecamps.php');
+            }
+            else{
+                echo"No camps with this name";
+                //header('location:login.php');
+            }
+        }
+    }
 }
-session-start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,7 +68,7 @@ session-start();
 <header>
         <nav>
             <div class="nav-links">
-                <div class="logo"><img src="images/withBackground (1).png"></div>
+                <div class="logo"><img src="images/withBackground(1).png"></div>
                
                 <ul>
                    
@@ -48,20 +81,17 @@ session-start();
             </div>
         </nav>
         <nav class="navbar bg-danger">
-  <div class="container-fluid">
-    <a class="navbar-brand "><b>CAMP DETAILS</b></a>
-    <form class="d-flex" role="search" action="admincamps.php" method="POST">
-      <input class="form-control me-1" type="search" placeholder="Camp name" aria-label="Search">
-      <button class="btn btn-outline-dark" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+          <div class="container-fluid">
+            <a class="navbar-brand "><b>CAMP DETAILS</b></a>
+            <form class="d-flex" role="search" action="admincamps.php" method="POST">
+              <input class="form-control me-1" type="search" name='camp' placeholder="Camp name" aria-label="Search">
+              <button class="btn btn-outline-dark" type="submit" name="Searchcamp">Search</button>
+            </form>
+          </div>
+        </nav>
     </header>
     <br><br>
 
- 
-
-   
     <?php
        
           $servername="localhost";
@@ -75,11 +105,10 @@ session-start();
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
           else{
-            $sql="SELECT * FROM `camps` WHERE `bloodbank_id=";
+            $bid=$_SESSION['bid'];
+            $sql="SELECT * FROM `camps` WHERE `bloodbank_id`=$bid";
             $result=mysqli_query($conn,$sql);
             
-           
-
             if(mysqli_num_rows($result)>0)
             {
                 ?>
@@ -136,15 +165,15 @@ session-start();
               <?php
             }
             else{
-               echo"login failed! ENTER VALID USERNAME AND PASSWORD";
-               header('location:updatecamps.php');
+               echo"No Camps yet!!";
+              //  header('location:updatecamps.php');
             }
           }
         
 
         ?>
 
-
+<?php include "php/_footer.php"?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

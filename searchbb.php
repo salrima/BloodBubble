@@ -26,19 +26,7 @@
 </head>
 
 <body>
-<header>
-    <nav>
-        <div class="nav-links">
-            <div class="logo"><img src="images/withBackground (1).png"></div>
-            <ul>
-                <li><a href="#" class="HHOVER">ABOUT US</a></li>
-                <li><a href="#"class="HHOVER">LOOKING FOR BLOOD</a></li>
-                <li><a href="#" class="HHOVER">DONATE BLOOD</a></li>
-                <li><a href="#" class="HHOVER">BLOOD BANK LOGIN</a></li>
-            </ul>
-        </div>
-    </nav>
-  </header>
+<?php include "php/_nav.php"?>
   <div class="X">
     <div id="TITLE"></div>
     <script>
@@ -169,7 +157,7 @@
         }
 
         ?>
-
+<?php include "php/_footer.php"?>
 
 
     <!-- Optional JavaScript -->

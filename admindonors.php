@@ -43,7 +43,7 @@
         </nav>
         <nav class="navbar bg-danger">
   <div class="container-fluid">
-    <a class="navbar-brand "><b>CAMP DETAILS</b></a>
+    <a class="navbar-brand "><b>DONOR DETAILS</b></a>
     <form class="d-flex" role="search" action="admincamps.php" method="POST">
       <input class="form-control me-1" type="search" placeholder="Camp name" aria-label="Search">
       <button class="btn btn-outline-dark" type="submit">Search</button>
@@ -58,23 +58,16 @@
    
     <?php
        
-          $servername="localhost";
-          $username="root";
-          $password="";
-          $database="bloodbank";
-
-          $conn=mysqli_connect($servername, $username, $password, $database);
+       include "php/_connect.php";
           if(!$conn)
           {
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
           else{
-            $sql="SELECT * FROM `donor`";
+            $sql="SELECT  `donor_id`, `Fname`, `Lname`, `Username`,`mobileno`,`Email`,`Gender`,`Dob` FROM `user` NATURAL JOIN `donor` ";
             $result=mysqli_query($conn,$sql);
-            
-           
-
-            if(mysqli_num_rows($result)>0)
+            $no=mysqli_num_rows($result);
+            if($no>0)
             {
                 ?>
                 <table class="table">
@@ -95,7 +88,7 @@
                 </thead>
                 <tbody>
                 <?php
-                while($row=mysqli_fetch_array($result))
+                while($row=mysqli_fetch_assoc($result))
                 {
                     ?>
 
@@ -112,8 +105,8 @@
                  <td><?php echo $row['Dob'];?></td>
                 
                  <td>
-                 <form action="updat.php" method="post">
-                    <input type="hidden" name="cid" value=<?php echo $row['camp_id'];?>>
+                 <form action="donorinfo.php" method="post">
+                    <input type="hidden" name="cid" value=<?php echo $row['donor_id'];?>>
                     <input type="submit" value="Click Here">
                   </form>
                 </td>
@@ -129,15 +122,12 @@
             
               <?php
             }
-            else{
-               echo"login failed! ENTER VALID USERNAME AND PASSWORD";
-               header('location:updatecamps.php.php');
-            }
+            
           }
         
 
         ?>
-
+<?php include "php/_footer.php"?>
 
 
     <!-- Optional JavaScript -->

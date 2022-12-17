@@ -89,20 +89,20 @@ session_start();
   </div> 
 <select name="dtype" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
   <option selected>Select blood component</option>
-  <option value="1">Whole Blood</option>
-  <option value="2">Single Donor Platelet</option>
-  <option value="3">Single Donor Plasma</option>
-  <option value="1">Sagm Packed Red Blood Cells</option>
-  <option value="2">Platelet Rich Plasma</option>
-  <option value="3">Platelet Poor Plasma</option>
-  <option value="1">Platelet Concentrate</option>
-  <option value="2">Plasma</option>
-  <option value="3">Packed Red Blood Cells</option>
-  <option value="2">Leukoreduced RBC</option>
-  <option value="3">Irradiated RBC</option>
-  <option value="1">Fresh Frozen Plasma</option>
-  <option value="2">Cryoprecipitate</option>
-  <option value="3">Cryo Poor Plasma</option>
+  <option value="Whole Blood">Whole Blood</option>
+  <option value="Single Donor Platelet">Single Donor Platelet</option>
+  <option value="Single Donor Plasma">Single Donor Plasma</option>
+  <option value="Sagm Packed Red Blood Cells">Sagm Packed Red Blood Cells</option>
+  <option value="Platelet Rich Plasma">Platelet Rich Plasma</option>
+  <option value="Platelet Poor Plasma">Platelet Poor Plasma</option>
+  <option value="Platelet Concentrate">Platelet Concentrate</option>
+  <option value="Plasma">Plasma</option>
+  <option value="Packed Red Blood Cells">Packed Red Blood Cells</option>
+  <option value="Leukoreduced RBC">Leukoreduced RBC</option>
+  <option value="Irradiated RBC">Irradiated RBC</option>
+  <option value="Fresh Frozen Plasma">Fresh Frozen Plasma</option>
+  <option value="Cryoprecipitate">Cryoprecipitate</option>
+  <option value="Cryo Poor Plasma">Cryo Poor Plasma</option>
 </select>
 </div><br><br>
 
@@ -117,7 +117,8 @@ session_start();
 </form>
     </div><br><br>
      
-   
+    <?php include "php/_footer.php"?>
+
     
 
     <!-- Optional JavaScript -->
