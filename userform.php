@@ -57,6 +57,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         if($result){
             $_SESSION['uname']=$uname;
+           
+            $receiver = $email;
+$subject = "Registration Successful";
+$body = "Thank you for registering with Blood Bubble";
+$sender = "From: Bloodbubble";
+if(mail($receiver, $subject, $body, $sender)){
+    echo "Email sent successfully to $receiver";
+}else{
+    echo "Sorry, failed while sending mail!";
+}
+           
             echo'<div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>THANK YOU FOR REISTERING</strong> You have successfully registered.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
