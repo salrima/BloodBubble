@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+echo $_SESSION['bid'];
+?>
 <!doctype html>
 <html lang="en">
 
@@ -45,7 +48,7 @@
   <div class="container-fluid">
     <a class="navbar-brand "><b>DONOR DETAILS</b></a>
     <form class="d-flex" role="search" action="admincamps.php" method="POST">
-      <input class="form-control me-1" type="search" placeholder="Camp name" aria-label="Search">
+      <input class="form-control me-1" type="search" placeholder="Donor name" aria-label="Search">
       <button class="btn btn-outline-dark" type="submit">Search</button>
     </form>
   </div>
@@ -64,7 +67,7 @@
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
           else{
-            $sql="SELECT  `donor_id`, `Fname`, `Lname`, `Username`,`mobileno`,`Email`,`Gender`,`Dob` FROM `user` NATURAL JOIN `donor` ";
+            $sql="SELECT * FROM `user` NATURAL JOIN `donor` NATURAL JOIN  `donates_bb` WHERE `bloodbank_id`= {$_SESSION['bid']}";
             $result=mysqli_query($conn,$sql);
             $no=mysqli_num_rows($result);
             if($no>0)
@@ -106,7 +109,7 @@
                 
                  <td>
                  <form action="donorinfo.php" method="post">
-                    <input type="hidden" name="cid" value=<?php echo $row['donor_id'];?>>
+                    <input type="hidden" name="did" value=<?php echo $row['donor_id'];?>>
                     <input type="submit" value="Click Here">
                   </form>
                 </td>

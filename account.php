@@ -31,14 +31,14 @@
 <?php include "php/_nav.php";?>
 <br><br>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title btn-light" style="text-align:center"><b>BLOOD DONATION </b></h5>
+                    <h5 class="card-title btn-light" style="text-align:center"><b>My Account </b></h5>
                     <?php
                         // $sql="SELECT * FROM `donates_bb` NATURAL JOIN `donor` WHERE `bloodbank_id`='{$_SESSION['bbid']}' AND `status`='' AND `donation_date`='current_date()'";
-                        $sql="SELECT * FROM `USER` NATURAL JOIN `donor` NATURAL JOIN `donates_bb` NATURAL JOIN `donates_camps` WHERE `Username`=$_SESSION['uname'] ;
-                        ";
+                        $sql="SELECT * FROM `user` NATURAL JOIN `donor` NATURAL JOIN `donates_bb` WHERE `Username`={$_SESSION['uname'] }";
+                        
                         $result=mysqli_query($conn,$sql);
 
                         if(mysqli_num_rows($result)>0)
@@ -54,6 +54,7 @@
                             <th scope="col">Donor ID</th>
                             <th scope="col">Blood Group</th>
                             <th scope="col">Donation Date</th>
+                            <th scope="col">Certificate</th>
 
                         
                         </tr>
@@ -81,8 +82,16 @@
 </td>
 <td>
 <?php echo $row['donation_date'];?>
-</td>
 
+</td>
+<?php if($row['donation_date']=="Donated")
+{ ?>
+<td>Download</td>
+<?php
+}else{?>
+    <td>Null</td><?php
+}
+?>
 
 </tr>
                                 
@@ -108,8 +117,10 @@
     
    
     <?php
-        mysqli_close($conn);
+        
+
         include "php/_footer.php";
+        mysqli_close($conn);
     ?>
 
 

@@ -68,7 +68,7 @@
 <header>
         <nav>
             <div class="nav-links">
-                <div class="logo"><img src="images/withBackground(1).png"></div>
+                <div class="logo"><img src="images/logo.png"></div>
                
                 <ul>
                    

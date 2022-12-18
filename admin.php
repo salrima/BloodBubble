@@ -1,5 +1,6 @@
 <?php
     session_start();
+   
 ?>
 <!doctype html>
 <html lang="en">
@@ -58,6 +59,10 @@
 
 
     <div class="btn-group" role="group" aria-label="Basic example" style="margin-left:25%">
+    <?php
+    if(isset($_SESSION['bid']))
+    $bid= $_SESSION['bid'];
+    ?>
         <a href="campregistration.php" class="btn btn-primary">Add camps</a>
         <a href="admincamps.php" class="btn btn-secondary">search camps</a>
         <a href="admindonors.php" class="btn btn-success">search donor</a>
@@ -67,12 +72,12 @@
         <!-- <form href="admincamps.php" method="post"> -->
         <!-- <input type="hidden" name="bloodbank" value=<?php //echo $bid;?>> -->
         <!-- <input class="btn btn-success" type="submit" value="search camps">
-  </form> -->
+  </form> --> 
 
-        <!-- <form href="admindonors.php" method="post"> -->
-        <!-- <input type="hidden" name="bloodbank" value=<?php //echo $bid;?>> -->
+        <!-- <form href="admindonors.php" method="post">
+        <input type="hidden" name="bloodbank" value=<?php $bid;?>> -->
         <!-- <input class="btn btn-success" type="submit" value="search donor">
-  </form> -->
+  </form> --> 
 
         <!-- <form href="campregistration.php" method="post"> -->
         <!-- <input type="hidden" name="bloodbank" value=<?php //echo $bid;?>> -->
