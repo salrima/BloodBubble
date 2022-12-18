@@ -1,16 +1,15 @@
 
 <?php
-if(isset($_POST['bloodbank']))
+if(isset($_POST['campid']))
 {
- $bid=$_POST['bloodbank'];
- echo $bid;
+ $cid=$_POST['campid'];
+ echo $cid;
 }
 session_start();
     
        if($_SERVER['REQUEST_METHOD'] == "POST"){
         
          $did=$_POST['did'];
-          $date=$_POST['ddate'];
          $type=$_POST['dtype'];
         
          
@@ -27,10 +26,10 @@ session_start();
           }
          else{
            echo"Connection was successful<br>";
-           $sql="INSERT INTO `donates_bb`(`donor_id`, `bloodbank_id`, `donor_type`, `donation_date`, `status`) VALUES ('$did','$bid','$type','$date','Not donated')";
+           $sql="INSERT INTO `donates_camps`(`donor_id`, `camp_id`, `donor_type`, `status`) VALUES ('$did','$cid','$type','Not donated')";
             $result=mysqli_query($conn,$sql);
             
-           $sql2="SELECT * FROM `bloodbank` WHERE `bloodbank_id`=$bid";
+           $sql2="SELECT * FROM `camps` WHERE `camp_id`=$cid";
            $result2=mysqli_query($conn,$sql2);
           $row=mysqli_fetch_array($result2);
 
@@ -61,7 +60,7 @@ session_start();
   <?php include "php/_nav.php"?>
   
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>REGISTRATION SUCCESSFUL!</strong> You have to come to donate blood at the bloodbank <?php $row['bb_name'] ?> on <?php echo $date ?>. Thank you!
+  <strong>REGISTRATION SUCCESSFUL!</strong><br> You have to come to donate blood at the venue <?php echo $row['camp_name'] ?> on <?php  echo $row['camp_date']?> between <?php  echo $row['start_time']?> to <?php  echo $row['end_time']?>  Thank you!
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
     

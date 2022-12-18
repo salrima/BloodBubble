@@ -9,14 +9,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="indexcss.css">
+   
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="style.css">
     <title>Camp Registration</title>
 </head>
 
-<body background="blood_types.jpg">
-<?php include "php/_nav.php";?>
+<body >
+<?php 
+include "php/_nav.php";
+?>
   <div class="X">
     <div id="TITLE"></div>
     <script>

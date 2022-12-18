@@ -1,9 +1,10 @@
 <?php
-if(isset($_POST['bid']))
-{
- $bid=$_POST['bid'];
-}
 session_start();
+if(isset($_SESSION['bid']))
+{
+ $bid=$_SESSION['bid'];
+}
+
 //echo"welcome".$_SESSION['uname'];
 ?>
 <!doctype html>
@@ -50,34 +51,42 @@ session_start();
         </nav>
         <nav class="navbar bg-danger">
   <div class="container-fluid">
-    <a class="navbar-brand "><b>CAMP DETAILS</b></a>
-    <form class="d-flex" role="search" action="admincamps.php" method="POST">
-      <input class="form-control me-1" type="search" placeholder="Camp name" aria-label="Search">
-      <button class="btn btn-outline-dark" type="submit">Search</button>
-    </form>
+    <a class="navbar-brand" style="text-align:center"><b>BLOODBANK DETAILS</b></a>
+  
   </div>
 </nav>
     </header>
     <br><br>
 
- 
+    <?php
+    include "php/_connect.php";
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            $bbname=$_POST['bbname'];
+            $uname=$_POST['uname'];
+            // $pass=$_POST['pass'];
+            $hname=$_POST['hname'];
+            $contactp=$_POST['contactp'];
+            $contactno=$_POST['contactno'];
+            $email=$_POST['email'];
+            $city=$_POST['city'];
+            $state=$_POST['state'];
+            $district=$_POST['district'];
+            
+            $sql="UPDATE `bloodbank` SET `bb_name`='$bbname',`Username`='$uname',`h_name`='$hname',`contactno`='$contactp',`contactperson`='$contactno',`email`='$email',`City`='$city',`District`='$district',`State`='$state' WHERE `bloodbank_id`='$bid';";
+            $result=mysqli_query($conn,$sql);
+        }
 
    
-    <?php
+    
      
        
-          $servername="localhost";
-          $username="root";
-          $password="";
-          $database="bloodbank";
-
-          $conn=mysqli_connect($servername, $username, $password, $database);
+        
           if(!$conn)
           {
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
           else{
-            $sql="SELECT * FROM `bloodbank` WHERE `bloodbank_id`=$bid";
+            $sql="SELECT * FROM `bloodbank` WHERE `bloodbank_id`='$bid'";
             $result=mysqli_query($conn,$sql);
                 $row=mysqli_fetch_array($result);
           }
@@ -102,13 +111,13 @@ session_start();
       </div><br><br>
       <div class="row g-3 align-items-cente">
         <div class="col-auto">
-          <label for="hname" class="col-form-label">Hospital Name</label>
+          <label for="hname" class="col-form-label">Hospital</label>
         </div>
         <div class="col-auto">
           <input type="text" name="hname" id="hname" value="<?php echo $row['h_name'];?>" class="form-control" required>
         </div>
         <div class="col-auto">
-          <label for="contactp" class="col-form-label">Contact Person</label>
+          <label for="contactp" class="col-form-label">Contact</label>
         </div>
 
         <div class="col-auto">
@@ -117,7 +126,6 @@ session_start();
         <div class="col-auto">
           <label for="contactno" class="col-form-label">Contact No</label>
         </div>
-
         <div class="col-auto">
           <input type="text" name="contactno" id="contactno" value="<?php echo $row['contactno'];?>" class="form-control" oninput="this.value=this.value.replace(/[^0-9]/g,'')" required>
         </div>
@@ -151,7 +159,7 @@ session_start();
 
       </div><br><br>
       <div class="d-grid gap-2 col-2 mx-auto">
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success" type="submit">Save</button>
 
       </div>
   </div>

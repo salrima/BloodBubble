@@ -1,0 +1,139 @@
+*{
+  color: black;
+}
+body{
+    background-repeat: no-repeat;
+    background-size:100%;
+    object-fit: cover;
+}
+#ist {
+    margin: 10px;
+    height: 35px;
+    width: 65px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: arimo;
+    font-size: 1.2rem;
+    background: #eef2f3;
+  }
+  #sec{
+    margin: 10px;
+    height: 35px;
+    width: 65px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: arimo;
+    font-size: 1.2rem;
+    background: #eef2f3;
+  }
+  #third{
+    margin: 10px;
+    height: 35px;
+    width: 65px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: arimo;
+    font-size: 1.2rem;
+    background: #eef2f3;
+
+  }
+  #fourth{
+    margin: 10px;
+    height: 35px;
+    width: 65px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: arimo;
+    font-size: 1.2rem;
+    background: #eef2f3;
+
+  }
+  #fifth{
+    margin: 10px;
+    height: 35px;
+    width: 65px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: arimo;
+    font-size: 1.2rem;
+    background: #eef2f3;
+
+  }
+.userin {
+    display: flex;
+    justify-content: center;
+  }
+  .otpform{
+    display: flex;
+  flex-flow: column;
+  height: 100%;
+  align-items: space-around;
+  justify-content: center;
+  }
+
+.vbutton{
+    width: 150px;
+    height: 40px;
+    margin: 25px auto 0px auto;
+    margin-left: 32%;
+    font-family: arimo;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    background: right, #d80202ff;
+    justify-content: center;
+    
+    
+  }
+  .otpheadings{
+    text-align: center;
+    font-size: medium;
+    font-size: small;
+    font-weight:bold;
+
+   
+  }
+  .sub1{
+    text-align: center;
+    font-size: medium;
+    font-size: small;
+    font-weight:bold;
+
+  }
+  .sub2{
+    text-align: center;
+    font-size: medium;
+    font-size: small;
+    font-weight:bold;
+
+  }
+  .time{
+
+  }
+  #bckIMG img{
+    position: relative;
+    margin: 0px;
+    top:0px;
+    left:0px;
+    width:100%;
+    height: 510px;
+}
+
+.FormContainer{
+    position: absolute;
+    background-color: rgb(255, 253, 253);
+    opacity:85%;
+    border-radius: 12px;
+    width: 435px;
+    height: 277px;
+    left: 589px;
+    top: 204px;
+
+}

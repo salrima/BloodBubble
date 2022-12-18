@@ -4,7 +4,7 @@
 //  $cid=$_POST['cid'];
 // }
 session_start();
-echo"welcome".$_SESSION['cid'];
+$cid=$_POST['cid'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,10 +51,7 @@ echo"welcome".$_SESSION['cid'];
         <nav class="navbar bg-danger">
   <div class="container-fluid">
     <a class="navbar-brand "><b>CAMP DETAILS</b></a>
-    <form class="d-flex" role="search" action="admincamps.php" method="POST">
-      <input class="form-control me-1" type="search" placeholder="Camp name" aria-label="Search">
-      <button class="btn btn-outline-dark" type="submit">Search</button>
-    </form>
+   
   </div>
 </nav>
     </header>
@@ -75,7 +72,7 @@ echo"welcome".$_SESSION['cid'];
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
           else{
-            $sql="SELECT * FROM `camps` WHERE `camp_id`=$cid";
+            $sql="SELECT * FROM `camps` WHERE `camp_id`='$cid'";
             $result=mysqli_query($conn,$sql);
                 $row=mysqli_fetch_array($result);
           }
@@ -188,7 +185,7 @@ echo"welcome".$_SESSION['cid'];
     <div class="d-grid gap-2 col-2 mx-auto">
     <input type="hidden" name="cid" value=<?php echo $row['camp_id'];?>>
   
-    <input type="submit" value="Click Here">
+    <input class="btn btn-success" type="submit" value="Save">
 </div>
 </div>
 

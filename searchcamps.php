@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -138,9 +140,13 @@
                  <td><?php echo $row['org_email'];?></td>
                  <td><?php echo $row['City'];?></td>
 
-                 <td><a href="bbdonation.php">Click here</td>
+                 <td>
+                  <form action="campdonation.php" method="post">
+                    <input type="hidden" name="campid" value=<?php echo $row['camp_id'];?>>
+                    <input type="submit" value="Click Here">
+                  </form>
+                 </td>
                  </tr>
-    
    
               
             <?php

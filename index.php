@@ -72,7 +72,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><b>CHECK NOW!</b></h5>
                             <p class="card-text">Check the eligibility criteria and Register as donor and DONATE BLOOD</p>
-                            <a href="#" class="btn btn-success">Eligibility</a>
+                            <a href="eligibilityview.php" class="btn btn-success">Eligibility</a>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,33 @@
                     <div class="card-body btn-secondary">
                         <h5 class="card-title btn-danger"><b>WANT BLOOD? NO WORRIES </b></h5>
                         <p class="card-text">Register and find blood stock in the nearby blood banks.</p>
-                        <a href="login.php" class="btn btn-danger">Register</a>
+                        <?php
+                        if(isset($_SESSION['uname']))
+                            {
+                                include "php/_connect.php";
+                                $sql="SELECT * FROM `receiver` WHERE `Username` = '{$_SESSION['uname']}'";
+                                $result=mysqli_query($conn,$sql);
+                                if(mysqli_num_rows($result)==1){
+                                    $row=mysqli_fetch_array($result);
+                                    if($row['bloodgroup']!=NULL)
+                                    {
+                                    ?>
+                                        <a href="searchblood.php" class="btn btn-danger">Register</a>
+                                    <?php
+                                    }
+                                }
+                                else{
+                                ?>
+                                    <a href="receiver.php" class="btn btn-danger">Register</a>
+                                <?php
+                                }
+                            }
+                            else{
+                                ?>
+                                <a href="login.php" class="btn btn-danger">Register</a>
+                                <?php
+                            }?>
+                       
                     </div>
                 </div>
             </div>

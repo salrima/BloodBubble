@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION['bid'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,9 +45,9 @@ echo $_SESSION['bid'];
         </nav>
         <nav class="navbar bg-danger">
   <div class="container-fluid">
-    <a class="navbar-brand "><b>DONOR DETAILS</b></a>
+    <a class="navbar-brand "><b>RECEIVER DETAILS</b></a>
     <form class="d-flex" role="search" action="admincamps.php" method="POST">
-      <input class="form-control me-1" type="search" placeholder="Donor name" aria-label="Search">
+      <input class="form-control me-1" type="search" placeholder="Receiver name" aria-label="Search">
       <button class="btn btn-outline-dark" type="submit">Search</button>
     </form>
   </div>
@@ -108,8 +107,8 @@ echo $_SESSION['bid'];
                  <td><?php echo $row['Dob'];?></td>
                 
                  <td>
-                 <form action="donorinfo.php" method="post">
-                    <input type="hidden" name="cid" value=<?php echo $row['receiver_id'];?>>
+                 <form action="receiverinfo.php" method="post">
+                    <input type="hidden" name="rid" value=<?php echo $row['receiver_id'];?>>
                     <input type="submit" value="Click Here">
                   </form>
                 </td>

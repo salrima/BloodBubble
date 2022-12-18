@@ -1,14 +1,16 @@
 <?php
-if(isset($_POST['bloodbank']))
-{
- $bid=$_POST['bloodbank'];
- $uname=$_SESSION['uname'];
-}
 session_start();
+if(isset($_POST['campid']))
+{
+ $cid=$_POST['campid'];
+$uname=$_SESSION['uname'];
+}
+
 //echo"welcome".$_SESSION['uname'];
 ?>
 <!doctype html>
 <html lang="en">
+
 
 <?php
 include "php/_connect.php";
@@ -24,8 +26,6 @@ include "php/_connect.php";
             $row=mysqli_fetch_array($result);
           }
             ?>
-
-
 
 <head>
     <!-- Required meta tags -->
@@ -73,15 +73,19 @@ include "php/_connect.php";
      <br><br>
     <div class="container "style="background-color:gray; opacity:95%">
     <h3 style="color:maroon;text-align:center">DONOR REGISTRATION FORM</h3>
-    <form action="details.php" method="POST"><br>
+    <form action="detailscamps.php" method="POST"><br>
     <div class="row g-3 align-items-center">
     <div class="col-auto">
-    <label for="bbid" class="col-form-label">Blood bank ID</label>
+    <label for="campid" class="col-form-label">Camp ID</label>
   </div>  
-  <div class="col-auto">
-<input readonly type="number" name="bid" id="bid" value="<?php echo $bid?>" class="form-control" required >
-</div>
+  <div class="col-auto"> 
 
+<div class="col-auto">
+<input readonly type="number" name="cid" id="campid" value="<?php echo $cid?>" class="form-control" required >
+</div>
+  
+
+  
   </div>
   <div class="col-auto">
     <label for="donorid" class="col-form-label">Donor ID</label>
@@ -89,12 +93,7 @@ include "php/_connect.php";
   <div class="col-auto">
     <input readonly type="number" name="did" id="donorid" value="<?php echo $row['donor_id']?>" class="form-control" required >
   </div>
-  <div class="col-auto">
-    <label for="ddate" class="col-form-label">Donation Date</label>
-  </div> 
-  <div class="col-auto">
-    <input type="date" name="ddate" id="ddate" class="form-control" required >
-</div>
+ 
 </div><br><br>
 <div class="row align-items-center"style="margin-left:30%">
 <div class="col-auto">
@@ -120,8 +119,8 @@ include "php/_connect.php";
 </div><br><br>
 
     <div class="d-grid gap-2 col-2 mx-auto">
-    <form action="deatils.php" method="post">
-                    <input type="hidden" name="bloodbank" value=<?php echo $bid;?>>
+
+                    <input type="hidden" name="campid" value=<?php echo $cid;?>>
   <input class="btn btn-success" type="submit"></input>
  
 </div>

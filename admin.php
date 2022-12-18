@@ -44,12 +44,12 @@
         include "php/_connect.php";
         // echo"welcome".$_SESSION['bid'];
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            if($_POST['donated']){
+            if(isset($_POST['donated'])){
                 $did=$_POST['did'];
                 $sql="UPDATE `donates_bb` SET `status`='Donated' WHERE `donor_id`='$did'";
                 mysqli_query($conn,$sql);
             }
-            if($_POST['Request Granted']){
+            if(isset($_POST['Request Granted'])){
                 $rid=$_POST['rid'];
                 $sql="UPDATE `request` SET `status`='Request Granted' WHERE `request_id`='$rid'";
                 mysqli_query($conn,$sql);
@@ -60,8 +60,8 @@
 
     <div class="btn-group" role="group" aria-label="Basic example" style="margin-left:25%">
     <?php
-    if(isset($_SESSION['bid']))
-    $bid= $_SESSION['bid'];
+    // if(isset($_SESSION['bid']))
+    // $bid= $_SESSION['bid'];
     ?>
         <a href="campregistration.php" class="btn btn-primary">Add camps</a>
         <a href="admincamps.php" class="btn btn-secondary">search camps</a>
@@ -212,10 +212,9 @@
                                     <?php echo $row['City'];?>
                                 </td>
                                 <td>
-                                    <form action="" method="post">
-                                        <input type="hidden" name="did" value=<?php echo $row['camp_id']?>>
-                                        <input type="submit" class="btn btn-success" name="Successful" value="Camp Successful"
-                                            style="margin-left:4%">
+                                    <form action="handlecamps.php" method="post">
+                                        <input type="hidden" name="cid" value=<?php echo $row['camp_id'];?>>
+                                        <input type="submit" class="btn btn-success" name="Successful" value="Camp Successful" style="margin-left:4%">
                                     </form>
                                 </td>
                                 </tr>
