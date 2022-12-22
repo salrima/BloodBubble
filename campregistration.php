@@ -1,3 +1,7 @@
+<?php
+session_start();
+$bid=$_SESSION['bid'];
+?>
 <!doctype html>
 <html lang="en">
 
@@ -10,9 +14,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
    
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+    <link rel="stylesheet" href="css/style.css">
     <title>Camp Registration</title>
+    <style>
+      .X{
+   background: #d80202ff;
+    min-height: 80px;
+    width:auto;
+    background-size: cover;
+    position: relative;
+    display:grid;
+    place-items: center;  
+}
+#TITLE{
+  font-size:25px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+</style>
 </head>
 
 <body >
@@ -56,7 +76,7 @@ include "php/_nav.php";
     <label for="bloodbankid" class="col-form-label">Blood Bank ID</label>
   </div>
   <div class="col-auto">
-    <input type="bloodbankid" name="bloodbankid" id="bloodbankid" class="form-control" >
+    <input readonly type="bloodbankid" name="bloodbankid" id="bloodbankid" value=<?php echo $bid?>>
   </div>
 </div><br><br>
 <div class="row g-3 align-items-center">
@@ -180,7 +200,7 @@ include "php/_nav.php";
           else{
             
             
-            $sql="INSERT INTO `camps`(`camp_id`, `bloodbank_id`, `camp_name`, `organization_type`, `organization_name`, `organizer_name`, `org_phno`, `org_email`, `City`, `District`, `State`, `camp_date`, `start_time`, `end_time`) VALUES ('','$bloodbankid','$cname','$orgtype','$orgname','$organizer','$orgphno','$orgemail','$city','$district','$state','$date','$stime','$etime');";
+            $sql="INSERT INTO `camps`(`camp_id`, `bloodbank_id`, `camp_name`, `organization_type`, `organization_name`, `organizer_name`, `org_phno`, `org_email`, `City`, `District`, `State`, `camp_date`, `start_time`, `end_time`, `status`) VALUES ('','$bid','$cname','$orgtype','$orgname','$organizer','$orgphno','$orgemail','$city','$district','$state','$date','$stime','$etime','Ndone');";
             $result=mysqli_query($conn,$sql);
            
             

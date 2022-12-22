@@ -31,7 +31,7 @@
             <div class="logo"><img src="images/withBackground (1).png"></div>
             <ul>
                 
-                <li><a href="#" class="HHOVER">ABOUT US</a></li>
+                <li><a href="BloodBub.php" class="HHOVER">ABOUT US</a></li>
                 <?php
                     if(isset($_SESSION['uname']))
                     {
@@ -46,15 +46,24 @@
                 <?php
                     if(isset($_SESSION['uname']))
                     {
+                        if(checkDonor() || checkReceiver())
+                        {
+                            ?> 
+                        <li><a href="eligibility.php" class="HHOVER">DONATE BLOOD</a></li>
+                        <?php
+                        }
+                        else{
                         ?> 
                         <li><a href="donorregistration.php" class="HHOVER">DONATE BLOOD</a></li>
                         <?php
+                        }
                     }
                     else{
                         ?>
                         <li><a href="login.php" class="HHOVER">DONATE BLOOD</a></li>
                         <?php
                     }
+                
                 ?>
                 
                 <!--<li><a href="#" class="HHOVER"></a></li>-->
@@ -68,15 +77,15 @@
                 <?php
                     if(isset($_SESSION['uname']) && (checkDonor() || checkReceiver()) )
                     {
-                        ?> <li><a href='account.php'><img src='images/user.jpg' alt='' style='width:29px;height:29px;'></a></li>
+                        ?> <li><a href='account.php' class="HHOVER">ACCOUNT</a></li>
                         <?php
                     }
                     else{
-                        ?><li><a href='login.php'><img src='images/user.jpg' alt='' style='width:29px;height:29px;'></a></li>
+                        ?><li><a href='login.php' class="HHOVER">LOGIN</a></li>
                         <?php
                     }
                 ?>
-                <li><a href="php/_logout.php"><img src='images/logout.png' alt='' style='width:80px;height:29px;'></a></li>
+                <li><a href="php/_logout.php" class="HHOVER">LOGOUT</a></li>
             </ul>
         </div>
     </nav>

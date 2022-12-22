@@ -20,7 +20,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="css/login.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
 
     <title>Admin</title>
@@ -46,8 +46,33 @@
         if($_SERVER['REQUEST_METHOD']=='POST'){
             if(isset($_POST['donated'])){
                 $did=$_POST['did'];
+                $dtype=$_POST['dtype'];
+                $dgrp=$_POST['dgrp'];
                 $sql="UPDATE `donates_bb` SET `status`='Donated' WHERE `donor_id`='$did'";
                 mysqli_query($conn,$sql);
+
+                echo "$dtype";
+                echo "$dgrp";
+
+                $sql2="SELECT * FROM `bloodgroup` WHERE `bgroup`='$dgrp' AND `bloodtype`='$dtype' AND `bloodbank_id`='{$_SESSION['bid']}'";
+                $result2=mysqli_query($conn,$sql2);
+
+                if(mysqli_num_rows($result2)==0){
+                    $sql4="INSERT INTO `bloodgroup`(`bgroup`, `bloodtype`, `quantity`, `bloodbank_id`) VALUES ('$dgrp','$dtype','1','{$_SESSION['bid']}')";
+                    mysqli_query($conn,$sql4);
+                    
+                }
+                else{
+                    $row=mysqli_fetch_array($result2);
+                    $qnt=(int)$row['quantity'];
+                    $qnt+=1;
+                    $sql3="UPDATE `bloodgroup` SET `quantity`='$qnt' WHERE `bgroup`='$dgrp' AND `bloodbank_id`='{$_SESSION['bid']}' AND `bloodtype`='$dtype'";
+                    mysqli_query($conn,$sql3);
+                }
+                
+
+                
+                
             }
             if(isset($_POST['Request Granted'])){
                 $rid=$_POST['rid'];
@@ -108,6 +133,8 @@
                                 ?>
                                 <form action="" method="post">
                                     <input type="hidden" name="did" value=<?php echo $row['donor_id']?>>
+                                    <input type="hidden" name="dtype" value=<?php echo "{$row['donor_type']}"?>>
+                                    <input type="hidden" name="dgrp" value=<?php echo "{$row['bloodgroup']}"?>>
                                     <label>
                                         <?php echo $row['Username']?>
                                     </label>
@@ -166,7 +193,7 @@
                 <h5 class="card-title btn-light" style="text-align:center"><b>UPCOMING CAMPS </b></h5>
                 <?php
                     // $sql="SELECT * FROM `donates_bb` NATURAL JOIN `donor` WHERE `bloodbank_id`='{$_SESSION['bbid']}' AND `status`='' AND `donation_date`='current_date()'";
-                    $sql2="SELECT * FROM `camps` WHERE `bloodbank_id`='{$_SESSION['bid']}' AND month(camp_date)=month(current_date());";
+                    $sql2="SELECT * FROM `camps` WHERE `bloodbank_id`='{$_SESSION['bid']}' AND month(camp_date)=month(current_date()) AND `status`='Ndone'";
                     $result2=mysqli_query($conn,$sql2);
 
                     if(mysqli_num_rows($result2)>0)
@@ -214,6 +241,7 @@
                                 <td>
                                     <form action="handlecamps.php" method="post">
                                         <input type="hidden" name="cid" value=<?php echo $row['camp_id'];?>>
+                                     
                                         <input type="submit" class="btn btn-success" name="Successful" value="Camp Successful" style="margin-left:4%">
                                     </form>
                                 </td>

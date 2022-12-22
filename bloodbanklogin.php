@@ -9,11 +9,27 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/indexcss.css">
-  <link rel="stylesheet" href="css/login.css">
+  <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
+  <!-- <link rel="stylesheet" href="css/login.css"> -->
   <link rel="stylesheet" href="css/style.css">
   <SCRIPT src="bbvalidation.js" of the External file> </SCRIPT>
+  <style>
+  .X{
+   background: #d80202ff;
+    min-height: 80px;
+    width:auto;
+    background-size: cover;
+    position: relative;
+    display:grid;
+    place-items: center;  
+}
 
+#TITLE{
+  font-size:25px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+</style>
   <title>Blood bank registration</title>
 </head>
 

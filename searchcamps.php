@@ -15,9 +15,9 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,600&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/11d397fc54.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/login.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/indexcss.css">
+    <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
     <link rel="stylesheet" href="css/search.css">
 
     <!-- Bootstrap CSS -->
@@ -25,6 +25,22 @@ session_start();
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Donor registration</title>
+    <style>
+      .X{
+   background: #d80202ff;
+    min-height: 80px;
+    width:auto;
+    background-size: cover;
+    position: relative;
+    display:grid;
+    place-items: center;  
+}
+#TITLE{
+  font-size:25px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+</style>
 </head>
 
 <body>
@@ -96,8 +112,8 @@ session_start();
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
           else{
-            echo"Connection was successful<br>";
-            $sql="SELECT * FROM `camps` WHERE `district` = '$district' AND `state` = '$state'";
+           
+            $sql="SELECT * FROM `camps` WHERE `district` = '$district' AND `state` = '$state' AND `status`='Ndone'";
             $result=mysqli_query($conn,$sql);
             
            
@@ -105,7 +121,7 @@ session_start();
             if(mysqli_num_rows($result)>0)
             {
                 ?>
-                <table class="table">
+                <table class="table table-danger table-striped-columns">
                 <thead>
                   <tr>
                     <th scope="col">Camp ID</th>
@@ -143,7 +159,7 @@ session_start();
                  <td>
                   <form action="campdonation.php" method="post">
                     <input type="hidden" name="campid" value=<?php echo $row['camp_id'];?>>
-                    <input type="submit" value="Click Here">
+                    <input type="submit" class="btn btn-danger" value="Click Here">
                   </form>
                  </td>
                  </tr>

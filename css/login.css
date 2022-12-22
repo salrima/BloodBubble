@@ -77,7 +77,8 @@ input[type=text], input[type=password]{
     box-sizing: border-box;
   }
 
-input[tpye=submit] {
+/* input[tpye=submit] { */
+button[type=submit], input[type=submit] {
     background-color: #f72727;
     color: white;
     padding: 14px 20px;

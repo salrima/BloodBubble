@@ -36,8 +36,7 @@
 
         if(isset($_SESSION['uname']))
         {
-            echo "The if";
-
+           
             ?>
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -163,8 +162,34 @@
                     <div class="card-body btn-secondary">
                         <h5 class="card-title btn-danger">DONATE BLOOD,SAVE LIFE</h5>
                         <p class="card-text ">Check the eligibility criteria, donation process and register to donate blood
-                        </p>
-                        <a href="login.php" class="btn btn-danger">Register</a>
+                        </p><?php
+                        if(isset($_SESSION['uname']))
+                            {
+                                include "php/_connect.php";
+                                $sql="SELECT * FROM `donor` WHERE `Username` = '{$_SESSION['uname']}'";
+                                $result=mysqli_query($conn,$sql);
+                                if(mysqli_num_rows($result)==1){
+                                    $row=mysqli_fetch_array($result);
+                                    if($row['bloodgroup']!=NULL)
+                                    {
+                                    ?>
+                                        <a href="donorsearch.php" class="btn btn-danger">Register</a>
+                                    <?php
+                                    }
+                                }
+                                else{
+                                ?>
+                                    <a href="donorregistration.php" class="btn btn-danger">Register</a>
+                                <?php
+                                }
+                            }
+                            else{
+                                ?>
+                                <a href="login.php" class="btn btn-danger">Register</a>
+                                <?php
+                            }
+                        ?>
+
                     </div>
                 </div>
             </div>

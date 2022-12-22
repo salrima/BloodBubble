@@ -3,7 +3,7 @@
 if(isset($_POST['bloodbank']))
 {
  $bid=$_POST['bloodbank'];
- echo $bid;
+
 }
 session_start();
     
@@ -26,9 +26,22 @@ session_start();
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
          else{
-           echo"Connection was successful<br>";
+          
            $sql="INSERT INTO `donates_bb`(`donor_id`, `bloodbank_id`, `donor_type`, `donation_date`, `status`) VALUES ('$did','$bid','$type','$date','Not donated')";
             $result=mysqli_query($conn,$sql);
+
+            $sql3="SELECT * FROM `user` NATURAL JOIN `donor` WHERE `donor_id`='$did';";
+            $result3=mysqli_query($conn,$sql3);
+            $row3=mysqli_fetch_array($result3);
+           $receiver = "{$row3['Email']}";
+          $subject = "Registration For Blood Donation Successfull";
+          $body = "Hi, {$row3['Fname']} {$row3['Lname']} you have successfully registered for blood donation at blood bank  on $date. Kidnly try to be there and have a nice day, Thank you. ";
+          $sender = "From: Bloodbubble";
+          if(mail($receiver, $subject, $body, $sender)){
+              echo "Email sent successfully to $receiver";
+          }else{
+              echo "Sorry, failed while sending mail!";
+          }
             
            $sql2="SELECT * FROM `bloodbank` WHERE `bloodbank_id`=$bid";
            $result2=mysqli_query($conn,$sql2);
@@ -52,7 +65,7 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-   <link rel="stylesheet" href="css/login.css">
+   <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
     <!--<link rel="stylesheet" href="css/indexcss.css">-->
     <title>Donor registration</title>

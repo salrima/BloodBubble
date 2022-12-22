@@ -7,8 +7,9 @@ class BloodBubble:
    
 
     def __init__(self,Name,Date,QRcodeData):  
-     self.my_path="C:/Users/Lloyd/Desktop/Certificate.pdf"
-     self.img1="C:/Users/Lloyd/Desktop/BB CERTIFICATE.png"
+     self.my_path="C:/Users/Salrima Fernandes/Desktop/pdfs/Certificate34.pdf"
+     self.img1="C:/Users/Salrima Fernandes/Desktop/pdfs/CERTIFICATE.jpeg"
+     # "C:\Users\Salrima Fernandes\Desktop\pdfs\CERTIFICATE.jpeg"
      self.c=canvas.Canvas(self.my_path)
      self.c.setFont('Helvetica',20)
      self.c.drawImage(self.img1,0,-140,width=210*mm,preserveAspectRatio=True,mask='auto')
@@ -27,7 +28,7 @@ class BloodBubble:
 
 
 if __name__=='__main__':
-     stringName="Jayden Viegas"
+     stringName="Salrima vas"
      stringDate="11/12/2002"
      QRcode="Renza Vas and Salrima"
      x=BloodBubble(stringName,stringDate,QRcode)

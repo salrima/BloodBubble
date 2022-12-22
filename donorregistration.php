@@ -26,7 +26,7 @@ session_start();
             echo"Connection was successful<br>";
             $sql="INSERT INTO `donor`(`donor_id`, `Username`,`bloodgroup`) VALUES ('','$uname','$bgroup')";
             $result=mysqli_query($conn,$sql);
-            
+            header('location:eligibility.php');
            
             // if(mysqli_num_rows($result)==1)
             // {
@@ -65,10 +65,28 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-   <link rel="stylesheet" href="css/login.css">
+   <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
     <!--<link rel="stylesheet" href="css/indexcss.css">-->
     <title>Donor registration</title>
+    <style>
+      .X{
+   background: #d80202ff;
+    min-height: 80px;
+    width:auto;
+    background-size: cover;
+    position: relative;
+    display:grid;
+    place-items: center;  
+}
+
+#TITLE{
+  font-size:25px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+</style>
+
 </head>
 
 <body>
@@ -97,7 +115,7 @@ session_start();
      <br><br>
     <div class="container "style="background-color:gray; opacity:95%">
     <h3 style="color:maroon;text-align:center">DONOR REGISTRATION FORM</h3>
-    <form action="donorsearch.php" method="POST"><br>
+    <form action="donorregistration.php" method="POST"><br>
     <div class="row g-3 align-items-center">
   <div class="col-auto" style="margin-left:30%">
     <label for="bgroup" class="col-form-label">Blood Group</label>

@@ -1,0 +1,165 @@
+.BigBox{
+    position: absolute;
+    margin:0px 0px;
+    left:0px;
+    top:0px;
+    width:55%;
+    height:100vh;
+    background-color: rgb(226, 61, 61);
+}
+
+.salrima{
+    position: relative;
+    left: 64vw;
+    top: 1vh;
+    width: 449px;
+    height: 242px;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.renza{
+    position: relative;
+    left: 64vw;
+    top: 8vh;
+    width: 449px;
+    height: 242px;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.BigBox h2{
+    position: relative;
+    font-family: "century gothic";
+    color:white;
+    font-size:45;
+    left:4vw;
+    top:10vh;
+    font-weight: lighter;
+}
+
+.BigBox h1{
+    position: relative;
+    font-family: "century gothic";
+    color:white;
+    font-size:70;
+    left:4vw;
+    top:5vh;
+}
+
+.BigBox p{
+    position: relative;
+    font-family: "century gothic";
+    width: 514px;
+    color:white;
+    font-size:20;
+    left:4vw;
+    top:4vh;
+    line-height: 1.8;
+}
+
+.savelifeContainer{
+    position: absolute;
+    top: 16vh;
+    left: 51.9vw;
+    width: 50px;
+    
+    
+    height: 680px;
+}
+
+.AlignSave{
+    position: relative;
+    font-family: "century gothic";
+    width: 320px;
+    color:white;
+    font-size:25px;
+    font-weight: bold;
+    left:0px;
+    top:0px;
+}
+#S{position:relative;top:1vh;left:3px}
+#A{position:relative;top:2vh;}
+#V{position:relative;top:3vh;}
+#E1{position:relative;top:4vh;left:3px}
+#L{position:relative;top:9vh;left:3px}
+#I{position:relative;top:10vh;left:3px}
+#F{position:relative;top:11vh;left:3px}
+#E{position:relative;top:12vh;left:3px}
+
+
+
+.renza h2{
+    position: absolute;
+    font-family: "century gothic";
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    left: 134px;
+    top: 0px;
+    
+}
+
+.renza h3{
+    position: absolute;
+    font-family: "calibri";
+    color: black;
+    font-size: 18px;
+    font-weight: light;
+    left: 134px;
+    top: 38px;
+    
+}
+
+.salrima h2{
+    position: absolute;
+    font-family: "century gothic";
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    left: 134px;
+    top: 0px;
+    
+}
+
+.salrima h3{
+    position: absolute;
+    font-family: "calibri";
+    color: black;
+    font-size: 18px;
+    font-weight: light;
+    left: 134px;
+    top: 38px;
+    
+}
+
+img{
+    width: 85px;
+    height: 80px;
+    border-radius: 75px;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+}
+
+.renza p{
+    position: absolute;
+    width:280px;
+    left:20px;
+    top:100px;
+    font-family: "calibri";
+    color:black;
+    font-size: 15;
+}
+
+.salrima p{
+    position: absolute;
+    width:280px;
+    left:25px;
+    top:100px;
+    font-family: "calibri";
+    color:black;
+    font-size: 15;
+}

@@ -14,7 +14,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
    
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <SCRIPT src="formvalidation.js" of the External file> 
     </SCRIPT>
     <title>User Registration</title>

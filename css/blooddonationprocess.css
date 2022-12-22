@@ -1,0 +1,229 @@
+/* .body{
+    
+    width:100%;
+    height:100%;
+} */
+.reason{
+    position:relative;
+    top:0px;
+    left:0px;
+    width:50px;
+}
+.reason h1{
+    position:absolute;
+    top:225px;
+    left:201px;
+    width:440%;
+    font-family: "century gothic";
+    color:white;
+    font-size:30px;
+}
+.reason p{
+    position:absolute;
+    top:290px;
+    left:125px;
+    width:445px;
+    font-family: "century gothic";
+    color:white;
+}
+.Blooddonationprocess{
+    
+    position:relative;
+    top:-124px;
+    height:70px;
+    width:50px;
+    left:-206px;
+    
+
+}
+.Blooddonationprocess p{
+    
+    position: absolute;
+    font-family: "century gothic";
+    color: rgb(243, 50, 50);
+    font-size: 70px;
+    font-weight: bold;
+    left: 358px;
+    top: 95px;
+    
+    
+}
+.bdp {
+    position: absolute;
+    width:300px;
+    left:500px;
+    top:50px;
+    text-align: center;
+    font-family: "calibri";
+    font-weight: 600;
+    font-size:200%;
+    color:rgb(231, 10, 10);
+    font-size: 15;
+}
+.registration{
+    position: relative;
+    left: 52vw;
+    top: -13vh;
+    width: 648px;
+    height: 136px;
+    background-color: rgb(243, 71, 71);
+
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 90px;
+}
+.registration h2{
+    position: absolute;
+    font-family: "century gothic";
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    left: 358px;
+    top: 0px;
+    
+}
+.registration h3{
+    position: absolute;
+    font-family: "century gothic";
+    color:white;
+    font-size: 26px;
+    font-weight: bold;
+    left: 205px;
+    top: 20px;
+}
+
+
+.registration p{
+    position: absolute;
+    width:280px;
+    left:330px;
+    top:57px;
+    font-family: "calibri";
+    color:black;
+    font-size: 15;
+}
+.medicalhistory{
+    position: relative;
+    left: 52vw;
+    top: -10vh;
+    width: 648px;
+    height: 136px;
+    background-color: rgb(243, 71, 71);
+
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 90px;
+}
+.medicalhistory h2{
+    position: absolute;
+    font-family: "century gothic";
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    left: 358px;
+    top: 0px;
+    
+}
+.medicalhistory h3{
+    position: absolute;
+    font-family: "century gothic";
+    color:white;
+    font-size: 26px;
+    font-weight: bold;
+    left: 205px;
+    top: 20px;
+}
+.medicalhistory p{
+    position: absolute;
+    width:280px;
+    left:330px;
+    top:57px;
+    font-family: "calibri";
+    color:black;
+    font-size: 15;
+}
+img{
+    width: 139px;
+    height: 98px;
+    border-radius: 48px;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+}
+.miniphysical{
+    position: relative;
+    left: 52vw;
+    top: -7vh;
+    width: 648px;
+    height: 136px;
+    background-color: rgb(243, 71, 71);
+
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 90px;
+}
+.miniphysical h2{
+    position: absolute;
+    font-family: "century gothic";
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    left: 358px;
+    top: 0px;
+    
+}
+.miniphysical h3{
+    position: absolute;
+    font-family: "century gothic";
+    color:white;
+    font-size: 26px;
+    font-weight: bold;
+    left: 205px;
+    top: 20px;
+}
+.miniphysical p{
+    position: absolute;
+    width:280px;
+    left:330px;
+    top:43px;
+    font-family: "calibri";
+    color:black;
+    font-size: 15;
+}
+
+.blooddonation{
+    position: relative;
+    left: 52vw;
+    top:-3vh;
+    width: 648px;
+    height: 136px;
+    background-color: rgb(243, 71, 71);
+
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 90px;
+}
+.blooddonation h2{
+    position: absolute;
+    font-family: "century gothic";
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    left: 358px;
+    top: 0px;
+    
+}
+.blooddonation h3{
+    position: absolute;
+    font-family: "century gothic";
+    color:white;
+    font-size: 26px;
+    font-weight: bold;
+    left: 205px;
+    top: 20px;
+}
+.blooddonation p{
+    position: absolute;
+    width:280px;
+    left:330px;
+    top:57px;
+    font-family: "calibri";
+    color:black;
+    font-size: 15;
+}

@@ -19,7 +19,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="css/login.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
 
     <title>Admin</title>
@@ -48,9 +48,29 @@
             }
             if(isset($_POST['donated'])){
                 $did=$_POST['did'];
+                $dtype=$_POST['dtype'];
+                $dgrp=$_POST['dgrp'];
+                $cid=$_POST['cid'];
                 $sql="UPDATE `donates_camps` SET `status`='Donated' WHERE `donor_id`='$did';";
                 mysqli_query($conn,$sql);
+            
+            $sql2="SELECT * FROM `bloodgroup` WHERE `bgroup`='$dgrp' AND `bloodtype`='$dtype' AND `bloodbank_id`='{$_SESSION['bid']}'";
+            $result2=mysqli_query($conn,$sql2);
+
+            if(mysqli_num_rows($result2)==0){
+                $sql4="INSERT INTO `bloodgroup`(`bgroup`, `bloodtype`, `quantity`, `bloodbank_id`) VALUES ('$dgrp','$dtype','1','{$_SESSION['bid']}')";
+                mysqli_query($conn,$sql4);
+                
             }
+            else{
+                $row=mysqli_fetch_array($result2);
+                $qnt=(int)$row['quantity'];
+                $qnt+=1;
+                $sql3="UPDATE `bloodgroup` SET `quantity`='$qnt' WHERE `bgroup`='$dgrp' AND `bloodbank_id`='{$_SESSION['bid']}' AND `bloodtype`='$dtype'";
+                mysqli_query($conn,$sql3);
+            }
+        }
+
         }
     ?>
 
@@ -73,6 +93,9 @@
                                 ?>
                                 <form action="handlecamps.php" method="post">
                                     <input type="hidden" name="did" value=<?php echo $row['donor_id']?>>
+                                    <input type="hidden" name="dtype" value=<?php echo "{$row['donor_type']}"?>>
+                                    <input type="hidden" name="dgrp" value=<?php echo "{$row['bloodgroup']}"?>>
+                                    <input type="hidden" name="cid" value=<?php echo "{$row['camp_id']}"?>>
                                     <label>
                                         <?php echo $row['Username']?>
                                     </label>
@@ -83,7 +106,10 @@
                             }
                         }
                         else{
-                            echo "No Donor for the day JUST CHILL!!";
+                          
+                            $sql4="UPDATE `camps` SET `status`='Done' WHERE `camp_id`='$cid'";
+                            mysqli_query($conn,$sql4);?>
+                            <a href="admin.php" class="btn btn-primary">Camp Successful</a><?php
                         }
                         
                     ?>

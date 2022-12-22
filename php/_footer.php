@@ -58,3 +58,4 @@
         </div>
     </div>
 </footer>
+<?php mysqli_close($database)?>

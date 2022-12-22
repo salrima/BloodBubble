@@ -62,14 +62,32 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,600&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/11d397fc54.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/login.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/indexcss.css">
+    <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Donor registration</title>
+    <style>
+      
+      .X{
+         background: #d80202ff;
+          min-height: 80px;
+          width:auto;
+          background-size: cover;
+          position: relative;
+          display:grid;
+          place-items: center;  
+      }
+      
+      #TITLE{
+        font-size:25px;
+        font-weight: bold;
+        font-family: "Helvetica";
+      }
+      </style>
 </head>
 
 <body>

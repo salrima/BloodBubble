@@ -15,9 +15,9 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,600&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/11d397fc54.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/login.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/indexcss.css">
+    <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
     <link rel="stylesheet" href="css/search.css">
 
     <!-- Bootstrap CSS -->
@@ -72,7 +72,7 @@ session_start();
             if($no>0)
             {
                 ?>
-                <table class="table">
+                <table class="table table-danger table-striped-columns">
                 <thead>
                   <tr>
                     <th scope="col">Receiver ID</th>
@@ -109,7 +109,7 @@ session_start();
                  <td>
                  <form action="receiverinfo.php" method="post">
                     <input type="hidden" name="rid" value=<?php echo $row['receiver_id'];?>>
-                    <input type="submit" value="Click Here">
+                    <input type="submit" class="btn btn-danger" value="Click Here">
                   </form>
                 </td>
                  </tr>

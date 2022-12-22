@@ -111,7 +111,7 @@
               </div>
 </div>
     
-
+<form action="donorsearch.php" >
 <div class="formcheck">
   <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
   <label class="form-check-label" for="invalidCheck2">
@@ -120,9 +120,13 @@
   <BR><BR>
   <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required>
   <label class="form-check-label" for="invalidCheck3">
-      I HAVE NOT SUBMITTED BLOOD FOR LAST 3 MONTHS.
+      I have not submitted blood for last 3 months..
   </label>
+  <br><br>
+  <button class="btn btn-success" style="margin-left:18%" type="submit">Continue</button>
 </div>
+
+</form>
 
 <?php include "php/_footer.php"?>
 

@@ -84,7 +84,7 @@
                 <label>
                     <input class="inputTypeCheckBox" type="checkbox" name="remember"> Remember me
                 </label>
-                <p class="forgotpsd"> <a href="forgotpass.php">Forgot Password?</a></p>
+                <p class="forgotpsd"> <a href="forgot.php">Forgot Password?</a></p>
             </div>
 
 

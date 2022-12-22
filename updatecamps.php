@@ -20,9 +20,9 @@ $cid=$_POST['cid'];
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,700;1,600&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/11d397fc54.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/login.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/indexcss.css">
+    <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
     <link rel="stylesheet" href="css/search.css">
 
     <!-- Bootstrap CSS -->
@@ -57,34 +57,47 @@ $cid=$_POST['cid'];
     </header>
     <br><br>
 
- 
+    <?php
+      include "php/_connect.php";
+      if(!$conn)
+      {
+        die("Sorry we failed to connect:". mysqli_connect_error());
+      }
+      else{
+        $sql="SELECT * FROM `camps` WHERE `camp_id`='$cid'";
+        $result=mysqli_query($conn,$sql);
+        $row=mysqli_fetch_array($result);
+      }
+      if($_SERVER['REQUEST_METHOD'] == "POST"){
+          if(isset($_POST['save']))
+          {
+            $cname=$_POST['cname'];
+            // $pass=$_POST['pass'];
+            $orgtype=$_POST['orgtype'];
+            $orgname=$_POST['orgname'];
+            $organizer=$_POST['organizer'];
+            $orgphno=$_POST['orgphno'];
+            $email=$_POST['orgemail'];
+            $city=$_POST['city'];
+            $state=$_POST['state'];
+            $district=$_POST['district'];
+            $date=$_POST['date'];
+            $stime=$_POST['stime'];
+            $etime=$_POST['etime'];
+            
+            $sql2="UPDATE `camps` SET `camp_name`='$cname',`organization_type`='$orgtype',`organization_name`='$orgname',`organizer_name`='$organizer',`org_phno`='$orgphno',`org_email`='$email',`City`='$city',`District`='$district',`State`='$state',`camp_date`='$date',`start_time`='$stime',`end_time`='$etime' WHERE `camp_id`='$cid';";
+            mysqli_query($conn,$sql2);
+          }
+      }          
+   ?>
 
    
-    <?php
-          $servername="localhost";
-          $username="root";
-          $password="";
-          $database="bloodbank";
-
-          $conn=mysqli_connect($servername, $username, $password, $database);
-          if(!$conn)
-          {
-            die("Sorry we failed to connect:". mysqli_connect_error());
-          }
-          else{
-            $sql="SELECT * FROM `camps` WHERE `camp_id`='$cid'";
-            $result=mysqli_query($conn,$sql);
-                $row=mysqli_fetch_array($result);
-          }
-       
-   ?>
-           
           
 
         
 <div class="container "style="background-color:gray; opacity:95%">
     <h3 style="color:maroon;text-align:center">CAMPS REGISTRATION FORM</h3>
-    <form action="campsupdated.php" method="post"><br>
+    <form action="updatecamps.php" method="post"><br>
     <div class="row g-3 align-items-center">
   <div class="col-auto">
     <label for="cname" class="col-form-label">Camp name</label>
@@ -93,10 +106,10 @@ $cid=$_POST['cid'];
     <input type="cname" name="cname" id="cname" value="<?php echo $row['camp_name'];?>"  class="form-control" >
   </div>
   <div class="col-auto">
-    <label for="bloodbankid" class="col-form-label">Blood Bank ID</label>
+    <label for="campid" class="col-form-label">Camp ID</label>
   </div>
   <div class="col-auto">
-    <input type="bloodbankid" name="bloodbankid" id="bloodbankid" value="<?php echo $row['camp_id'];?>" class="form-control" >
+    <input readonly type="campid" name="campid" id="campid" value="<?php echo $row['camp_id'];?>" class="form-control" >
   </div>
 </div><br><br>
 <div class="row g-3 align-items-center">
@@ -185,7 +198,7 @@ $cid=$_POST['cid'];
     <div class="d-grid gap-2 col-2 mx-auto">
     <input type="hidden" name="cid" value=<?php echo $row['camp_id'];?>>
   
-    <input class="btn btn-success" type="submit" value="Save">
+    <button class="btn btn-success" name="save" type="submit">Save</button>
 </div>
 </div>
 
