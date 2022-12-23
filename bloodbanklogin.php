@@ -12,6 +12,8 @@
   <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
   <!-- <link rel="stylesheet" href="css/login.css"> -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <SCRIPT src="drop.js"></SCRIPT>
   <SCRIPT src="bbvalidation.js" of the External file> </SCRIPT>
   <style>
   .X{

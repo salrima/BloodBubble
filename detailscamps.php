@@ -25,7 +25,7 @@ session_start();
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
          else{
-           
+           echo $type;
            $sql="INSERT INTO `donates_camps`(`donor_id`, `camp_id`, `donor_type`, `status`) VALUES ('$did','$cid','$type','Not donated')";
             $result=mysqli_query($conn,$sql);
 
@@ -52,6 +52,7 @@ session_start();
 
       }
     }
+    header('location:index.php');
         ?>
         <html>
         <head>
@@ -74,13 +75,13 @@ session_start();
     <title>Donor registration</title>
 </head>
 <body>
-  <?php include "php/_nav.php"?>
+  <!-- <?php include "php/_nav.php"?>
   
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <strong>REGISTRATION SUCCESSFUL!</strong><br> You have to come to donate blood at the venue <?php echo $row['camp_name'] ?> on <?php  echo $row['camp_date']?> between <?php  echo $row['start_time']?> to <?php  echo $row['end_time']?>  Thank you!
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
     
-<?php include "php/_footer.php"?>
+<?php include "php/_footer.php"?> -->
   </body>
           </html>

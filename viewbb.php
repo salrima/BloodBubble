@@ -44,6 +44,8 @@ include "php/_connect.php";
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="css/login.css"> -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <SCRIPT src="drop.js"></SCRIPT>
   <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
   <title>Donor registration</title>
   <style>
@@ -90,7 +92,7 @@ include "php/_connect.php";
   <br><br>
   <div class="container " style="background-color:gray; opacity:95%">
     <h3 style="color:maroon;text-align:center">DONOR REGISTRATION FORM</h3>
-    <form action="details.php" method="POST"><br>
+    <form action="details.php" method="POST" autocomplete="off"><br>
       <div class="row g-3 align-items-center">
         <div class="col-auto">
           <label for="bbid" class="col-form-label">Blood bank ID</label>
@@ -139,11 +141,11 @@ include "php/_connect.php";
   </div><br><br>
 
   <div class="d-grid gap-2 col-2 mx-auto">
-    <form action="deatils.php" method="post">
+   
       <input type="hidden" name="bloodbank" value=<?php echo $bid;?>>
       <input class="btn btn-success" type="submit"></input>
-    </form>
 
+    
   </div>
 
 

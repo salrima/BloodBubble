@@ -51,8 +51,7 @@
                 $sql="UPDATE `donates_bb` SET `status`='Donated' WHERE `donor_id`='$did'";
                 mysqli_query($conn,$sql);
 
-                echo "$dtype";
-                echo "$dgrp";
+      
 
                 $sql2="SELECT * FROM `bloodgroup` WHERE `bgroup`='$dgrp' AND `bloodtype`='$dtype' AND `bloodbank_id`='{$_SESSION['bid']}'";
                 $result2=mysqli_query($conn,$sql2);
@@ -74,12 +73,24 @@
                 
                 
             }
-            if(isset($_POST['Request Granted'])){
+            if(isset($_POST['Granted'])){
                 $rid=$_POST['rid'];
-                $sql="UPDATE `request` SET `status`='Request Granted' WHERE `request_id`='$rid'";
+                $dgrp=$_POST['dgrp'];
+                $dtype=$_POST['dtype'];
+       
+                $sql="UPDATE `request` SET `status`='Granted' WHERE `request_id`='$rid'";
                 mysqli_query($conn,$sql);
+                $sql2="SELECT * FROM `bloodgroup` WHERE `bgroup`='$dgrp' AND `bloodtype`='$dtype' AND `bloodbank_id`='{$_SESSION['bid']}'";
+                $result2=mysqli_query($conn,$sql2);
+                $row=mysqli_fetch_array($result2);
+                $qnt=(int)$row['quantity'];
+                $qnt-=1;
+                $sql3="UPDATE `bloodgroup` SET `quantity`='$qnt' WHERE `bgroup`='$dgrp' AND `bloodbank_id`='{$_SESSION['bid']}' AND `bloodtype`='$dtype'";
+                mysqli_query($conn,$sql3);
+    
             }
         }
+       
     ?>
 
 
@@ -122,6 +133,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title btn-light" style="text-align:center"><b>DONORS FOR THE DAY </b></h5>
+                    
                     <?php
                         // $sql="SELECT * FROM `donates_bb` NATURAL JOIN `donor` WHERE `bloodbank_id`='{$_SESSION['bbid']}' AND `status`='' AND `donation_date`='current_date()'";
                         $sql="SELECT * FROM `donates_bb` NATURAL JOIN `donor` WHERE `bloodbank_id`='{$_SESSION['bid']}' AND `donation_date`=current_date() AND `status`='Not Donated';";
@@ -129,16 +141,18 @@
 
                         if(mysqli_num_rows($result)>0)
                         {
+                            
                             while($row=mysqli_fetch_array($result)){
                                 ?>
                                 <form action="" method="post">
                                     <input type="hidden" name="did" value=<?php echo $row['donor_id']?>>
                                     <input type="hidden" name="dtype" value=<?php echo "{$row['donor_type']}"?>>
                                     <input type="hidden" name="dgrp" value=<?php echo "{$row['bloodgroup']}"?>>
+                                    
                                     <label>
                                         <?php echo $row['Username']?>
                                     </label>
-                                    <input type="submit" class="btn btn-success" name="donated" value="Donated!"
+                                    <input type="submit" style="margin-left:20%" class="btn btn-success" name="donated" value="Donated!"
                                         style="margin-left:4%"><br><br>
                                 </form>
                                 <?php
@@ -168,17 +182,20 @@
                                 ?>
                     <form action="" method="post">
                         <input type="hidden" name="rid" value=<?php echo $row['request_id']?>>
+                        
+                                    <input type="hidden" name="dtype" value=<?php echo "{$row['blood_type']}"?>>
+                                    <input type="hidden" name="dgrp" value=<?php echo "{$row['bloodgroup']}"?>>
                         <label>
                             <?php echo $row['Username']?>
                         </label>
-                        <input type="submit" class="btn btn-success" name="Request Granted" value="request Granted"
+                        <input type="submit" class="btn btn-success" name="Granted" value="request Granted"
                             style="margin-left:4%"><br><br>
                     </form>
                     <?php
                             }
                         }
                         else{
-                            echo "No Donor for the day JUST CHILL!!";
+                            echo "No Receivers for the day";
                         }
                         
                     ?>

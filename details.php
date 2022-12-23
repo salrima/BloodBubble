@@ -1,56 +1,58 @@
 
 <?php
+
 if(isset($_POST['bloodbank']))
 {
  $bid=$_POST['bloodbank'];
 
 }
 session_start();
-    
-       if($_SERVER['REQUEST_METHOD'] == "POST"){
+if($_SERVER['REQUEST_METHOD'] == "POST"){
         
-         $did=$_POST['did'];
-          $date=$_POST['ddate'];
-         $type=$_POST['dtype'];
-        
-         
+  $did=$_POST['did'];
+   $date=$_POST['ddate'];
+  $type=$_POST['dtype'];
+ 
+  
 
-          $servername="localhost";
-          $username="root";
-          $password="";
-          $database="bloodbank";
+   $servername="localhost";
+   $username="root";
+   $password="";
+   $database="bloodbank";
 
-          $conn=mysqli_connect($servername, $username, $password, $database);
-          if(!$conn)
-          {
-            die("Sorry we failed to connect:". mysqli_connect_error());
-          }
-         else{
-          
-           $sql="INSERT INTO `donates_bb`(`donor_id`, `bloodbank_id`, `donor_type`, `donation_date`, `status`) VALUES ('$did','$bid','$type','$date','Not donated')";
-            $result=mysqli_query($conn,$sql);
+   $conn=mysqli_connect($servername, $username, $password, $database);
+   if(!$conn)
+   {
+     die("Sorry we failed to connect:". mysqli_connect_error());
+   }
+  else{
+   
+    $sql="INSERT INTO `donates_bb`(`donor_id`, `bloodbank_id`, `donor_type`, `donation_date`, `status`) VALUES ('$did','$bid','$type','$date','Not donated')";
+     $result=mysqli_query($conn,$sql);
 
-            $sql3="SELECT * FROM `user` NATURAL JOIN `donor` WHERE `donor_id`='$did';";
-            $result3=mysqli_query($conn,$sql3);
-            $row3=mysqli_fetch_array($result3);
-           $receiver = "{$row3['Email']}";
-          $subject = "Registration For Blood Donation Successfull";
-          $body = "Hi, {$row3['Fname']} {$row3['Lname']} you have successfully registered for blood donation at blood bank  on $date. Kidnly try to be there and have a nice day, Thank you. ";
-          $sender = "From: Bloodbubble";
-          if(mail($receiver, $subject, $body, $sender)){
-              echo "Email sent successfully to $receiver";
-          }else{
-              echo "Sorry, failed while sending mail!";
-          }
-            
-           $sql2="SELECT * FROM `bloodbank` WHERE `bloodbank_id`=$bid";
-           $result2=mysqli_query($conn,$sql2);
-          $row=mysqli_fetch_array($result2);
+     $sql3="SELECT * FROM `user` NATURAL JOIN `donor` WHERE `donor_id`='$did';";
+     $result3=mysqli_query($conn,$sql3);
+     $row3=mysqli_fetch_array($result3);
+    $receiver = "{$row3['Email']}";
+   $subject = "Registration For Blood Donation Successfull";
+   $body = "Hi, {$row3['Fname']} {$row3['Lname']} you have successfully registered for blood donation at blood bank  on $date. Kidnly try to be there and have a nice day, Thank you. ";
+   $sender = "From: Bloodbubble";
+   if(mail($receiver, $subject, $body, $sender)){
+       echo "Email sent successfully to $receiver";
+   }else{
+       echo "Sorry, failed while sending mail!";
+   }
+     
+    $sql2="SELECT * FROM `bloodbank` WHERE `bloodbank_id`=$bid";
+    $result2=mysqli_query($conn,$sql2);
+   $row=mysqli_fetch_array($result2);
 
-      }
-    }
-        ?>
-        <html>
+}
+}
+header('location:index.php');
+ ?>
+?>
+  <html>
         <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -70,14 +72,17 @@ session_start();
     <!--<link rel="stylesheet" href="css/indexcss.css">-->
     <title>Donor registration</title>
 </head>
+    
+      
+      
 <body>
-  <?php include "php/_nav.php"?>
+  <!-- <?php include "php/_nav.php"?>
   
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <strong>REGISTRATION SUCCESSFUL!</strong> You have to come to donate blood at the bloodbank <?php $row['bb_name'] ?> on <?php echo $date ?>. Thank you!
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
     
-<?php include "php/_footer.php"?>
+<?php include "php/_footer.php"?> -->
   </body>
           </html>

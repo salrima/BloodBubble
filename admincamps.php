@@ -56,6 +56,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
     <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/style.css">
+ 
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"

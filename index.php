@@ -24,6 +24,20 @@
     <link rel="stylesheet" href="css/slides.css">
     <SCRIPT src="drop.js"></SCRIPT>
     <SCRIPT src="slidesjs.js"></SCRIPT>
+    <style>
+        body {
+            <?php
+            if(isset($_SESSION['uname']))
+            {
+                ?>background-color: white;
+              
+          <?php  } else
+          {
+            ?>
+            background-color: #FF8080;<?php
+          }?>
+  
+}?></style>
     <title>Home</title>
 </head>
 
@@ -42,15 +56,15 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="images/human-blood-donate-white-background_1308-110835.jpg"
-                        alt="First slide" width="10" height="300">
+                        alt="First slide" width="10" height="320">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="images/donating-blood-banner.jpg" alt="Second slide" width="10"
-                        height="300">
+                        height="320">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="images/Blood-donation-myths-HN1221-Stock-844661710-Sized.png"
-                        alt="Third slide" width="10" height="300" s>
+                        alt="Third slide" width="10" height="320" s>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -63,7 +77,7 @@
             </a>
         </div>
         <br><br><br>
-        <div class="container ">
+        <div class="container" >
             <div class="row">
                 <div class="col-4">
                     <div class="card" style="width: 18rem;">
@@ -95,7 +109,7 @@
                                     if($row['bloodgroup']!=NULL)
                                     {
                                     ?>
-                                        <a href="donorsearch.php" class="btn btn-danger">Register</a>
+                                        <a href="eligibility.php" class="btn btn-danger">Register</a>
                                     <?php
                                     }
                                 }
@@ -124,7 +138,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-body btn-secondary">
+                    <div class="card-body btn-dark">
                         <h5 class="card-title btn-danger"><b>WANT BLOOD? NO WORRIES </b></h5>
                         <p class="card-text">Register and find blood stock in the nearby blood banks.</p>
                         <?php
@@ -159,7 +173,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="card ">
-                    <div class="card-body btn-secondary">
+                    <div class="card-body btn-dark">
                         <h5 class="card-title btn-danger">DONATE BLOOD,SAVE LIFE</h5>
                         <p class="card-text ">Check the eligibility criteria, donation process and register to donate blood
                         </p><?php
@@ -173,7 +187,7 @@
                                     if($row['bloodgroup']!=NULL)
                                     {
                                     ?>
-                                        <a href="donorsearch.php" class="btn btn-danger">Register</a>
+                                        <a href="eligibility.php" class="btn btn-danger">Register</a>
                                     <?php
                                     }
                                 }
@@ -198,45 +212,55 @@
         }
         else{
             ?>
-            
+            <br><br>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card h-100">
                     <img src="images/post-img.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Blood Donation</h5>
+                        <li style="list-style:circle;color:red;">The Blood Donation process from the time you arrive until the time you leave takes about an hour.</li>
+                        <li style="list-style:circle;color:red;">The donation itself is only about 8-10 minutes on average.</li>
+                       
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
+                    
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100">
                     <img src="images/sr9mqjqcgwmnrfp4_1655186281.webp" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Blood Donation Day</h5>
+                        <li style="list-style:circle;color:red;">The World Blood Donor Day is celebrated every year on June 14.</li>
+                        <li style="list-style:circle;color:red;">The World Blood Donor Day was established by the WHO.</li>
+                       
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
+                    
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100">
                     <img src="images/Blood-facts_10-illustration-graphics__canteen.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <h5 class="card-title">Did You Know?</h5>
+                    
+                    <li style="list-style:circle;color:red;">Just 1 donation can save up to 3 lives.</li>
+                    <li style="list-style:circle;color:red;">The average red blood cell transfusion is 3 pints(or 3 whole-blood donations).</li>
+                    
+                </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
+                   
                     </div>
                 </div>
-                </div><bfr><br>
+                </div><br><br><br>
+                <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body"><br>
+                <a href="blooddonationprocess.php" style="margin-left:20%" class="btn btn-success">Click to know blood donation process</a>
+                <a href="blooddonationprocess.php" style="margin-left:10%" class="btn btn-success">Click to know the eligibility</a><br><br>
+                </div>
+            </div>
+        </div><br><br>
                 <div class="slideshow-container" >
 
                 <div class="mySlides" style="display:block">

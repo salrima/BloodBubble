@@ -43,5 +43,6 @@ session_start();
                 echo "Sorry, failed while sending mail!";
             }
         }
+        header('location:index.php');
     }
 ?>

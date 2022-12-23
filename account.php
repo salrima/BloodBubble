@@ -19,6 +19,8 @@
     <script src="https://kit.fontawesome.com/11d397fc54.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <SCRIPT src="drop.js"></SCRIPT>
     <!-- <link rel="stylesheet" href="css/indexcss.css"> -->
 
     <!-- Bootstrap CSS -->

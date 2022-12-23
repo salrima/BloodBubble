@@ -19,8 +19,32 @@ session_start();
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/login.css">
+  <!-- <link rel="stylesheet" href="css/login.css"> -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <SCRIPT src="drop.js"></SCRIPT>
+  <style>
+    body{
+  font-family:sans-serif; 
+  color:whitesmoke;
+}
+
+      .X{
+   background: #d80202ff;
+    min-height: 80px;
+    width:auto;
+    background-size: cover;
+    position: relative;
+    display:grid;
+    place-items: center;  
+}
+
+#TITLE{
+  font-size:25px;
+  font-weight: bold;
+  font-family: "Helvetica";
+}
+</style>
 
   <title>Receiver</title>
 </head>
@@ -62,7 +86,7 @@ session_start();
         <div class="col-auto" style="margin-left:2%">
           <label for="btype" class="col-form-label">Blood Type</label>
         </div>
-        <select name="btype" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+        <select name="btype" class="form-select form-select-lg mb-1" aria-label=".form-select-lg example" required>
           <option selected>Select blood component</option>
           <option value="WholeBlood">Whole Blood</option>
           <option value="SingleDonorPlatelet">Single Donor Platelet</option>
@@ -130,7 +154,7 @@ session_start();
 
       ?>
 
-  <table class="table" style="color:black">
+  <table class="table table-danger table-striped-columns" style="color:black">
     <thead>
       <tr>
         <th scope="col">Bloodbank Name</th>
@@ -190,7 +214,7 @@ session_start();
                 <form action="request.php" method="post" >
                   <input type="hidden" name="bloodbank" value=<?php echo $row['bloodbank_id'];?>>
                   <input type="hidden" name="qnt" value=<?php echo $quantity?>>
-                  <input type="submit" value="Click Here">
+                  <input type="submit" class="btn btn-dange" value="Click Here">
                 </form>
               </td>
             </tr>

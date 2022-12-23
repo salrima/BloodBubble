@@ -5,18 +5,17 @@
             <div class="foot_menu">
                 <h3>LOOKING FOR BLOOD</h3>
                 <ul>
-                    <li><a href="#">Blood Availability</a></li>
-                    <li><a href="#">Blood Bank</a></li>
-                    <li><a href="#">Directory</a></li>
-                    <li><a href="#">Request</a></li>
+                    <li><a href="receiver.php">Blood Availability</a></li>
+                    <li><a href="bblogin.php">Blood Bank</a></li>
+                    <li><a href="receiver.php">Request</a></li>
                 </ul>
             </div>
             <div class="foot_menu">
                 <h3>WANT TO DONATE BLOOD</h3>
                 <ul>
-                    <li><a href="#">Blood Donation Camp</a></li>
-                    <li><a href="#">Donor Login</a></li>
-                    <li><a href="#">Voluntary Donor Group</a></li>
+                    <li><a href="receiver.php">Blood Donation Camp</a></li>
+                    <li><a href="login.php">Donor Login</a></li>
+               
                     <li></li>
                 </ul>
             </div>
@@ -32,10 +31,10 @@
             <div class="foot_menu">
                 <h3>ABOUT US</h3>
                 <ul>
-                    <li><a href="#">About BLOODBUBBLE</a></li>
+                    <li><a href="BloodBub.php">About BLOODBUBBLE</a></li>
                     <li><a href="#">BLOODBUBBLE FAQs</a></li>
                     <li><a href="#">Notifications</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="BloodBub.php">Contact Us</a></li>
                 </ul>
             </div>
 

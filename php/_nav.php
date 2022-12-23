@@ -30,12 +30,12 @@
         <div class="nav-links">
             <div class="logo"><img src="images/withBackground (1).png"></div>
             <ul>
-                
+            <li><a href="index.php" class="HHOVER">HOME</a></li>
                 <li><a href="BloodBub.php" class="HHOVER">ABOUT US</a></li>
                 <?php
                     if(isset($_SESSION['uname']))
                     {
-                        ?> <li><a href="" class="HHOVER">LOOKING FOR BLOOD</a></li>
+                        ?> <li><a href="receiver.php" class="HHOVER">LOOKING FOR BLOOD</a></li>
                         <?php
                     }
                     else{
@@ -68,7 +68,7 @@
                 
                 <!--<li><a href="#" class="HHOVER"></a></li>-->
                 <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn">BLOOD BANK LOGIN</button>
+                    <button onclick="myFunction()" class="dropbtn HHOVER">BLOOD BANK LOGIN</button>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="bblogin.php">Blood Bank login </a>
                         <a href="bloodbanklogin.php">Add Blood Bank</a>

@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/style.css">
+    <SCRIPT src="drop.js"></SCRIPT>
 </head>
 
 <body>
@@ -25,11 +26,12 @@
                 $uname=$_POST['uname'];
                 $pass=$_POST['pass'];
                 
-                $sql="SELECT * FROM `user` WHERE `Username` = '$uname' AND `Password` = '$pass'";
+                $sql="SELECT * FROM `user` WHERE `Username` = '$uname'";
                 $result=mysqli_query($conn,$sql);
                 
                 if(mysqli_num_rows($result)==1)
                 {
+                    $row=mysqli_fetch_assoc($result);
                     $_SESSION['uname']=$uname;
                     // echo "$uname";
                     header('location: index.php');

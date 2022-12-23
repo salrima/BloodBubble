@@ -15,6 +15,8 @@ session_start();
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
     <link rel="stylesheet" href="css/style.css">
+    
+    <SCRIPT src="drop.js"></SCRIPT>
     <!-- <link rel="stylesheet" href="css/login.css"> -->
     <SCRIPT src="formvalidation.js" of the External file> 
     </SCRIPT>
@@ -51,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         die("Sorry we failed to connect:". mysqli_connect_error());
       }
       else{
-       
+      
         $sql="INSERT INTO `user`(`Fname`, `Mname`, `Lname`, `Username`, `Password`, `mobileno`, `Email`, `Gender`, `Age`, `Dob`, `City`, `State`, `Pincode`, `District`) VALUES ('$fname','$mname','$lname','$uname','$pass','$mobileno','$email','$gender','$age','$dob','$city','$state','$pincode','$district');";
         $result=mysqli_query($conn,$sql);
 
