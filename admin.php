@@ -32,7 +32,7 @@
             <div class="nav-links">
                 <div class="logo"><img src="images/withBackground (1).png"></div>
                 <ul>
-                    <li><a href="#" class="HHOVER">ABOUT US</a></li>
+                    <li><a href="BloodBub.php" class="HHOVER">ABOUT US</a></li>
                     <li><a href="php/_logout.php" class="HHOVER">LOG OUT</a></li>
                 </ul>
             </div>

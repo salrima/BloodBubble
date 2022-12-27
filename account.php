@@ -99,7 +99,8 @@
                                     <input type="hidden" name="fname" value=<?php echo $row['Fname']?>>
                                     <input type="hidden" name="lname" value=<?php echo $row['Lname']?>>
                                     <input type="hidden" name="date" value=<?php echo $row['donation_date']?>>
-                                    <button class="btn btn-success" type="submit"  style="margin-left:4%">Download </button>
+                                   
+                                    <button class="btn btn-success" type="submit" name="download" style="margin-left:4%">Download </button>
                                    
                                 </form>
                                 </td>
@@ -128,7 +129,7 @@
                             <?php
                         }
                         else{
-                            echo "No Donor for the day JUST CHILL!!";
+                            echo"No Donations done";
                         }
                         
                     ?>

@@ -108,10 +108,15 @@
           <input type="text" name="contactno" id="contactno" class="form-control" oninput="this.value=this.value.replace(/[^0-9]/g,'')" required>
         </div>
       </div><br><br>
-      <div class="mb-3" style="width:30%; margin-right:auto">
+      <div class="row g-3 align-items-cente">
+      <div class="col-auto">
+      <!-- <div class="mb-3" style="width:30%; margin-right:auto"> -->
         <label for="email" class="form-label">Email</label>
+    </div>
+    <div class="col-auto"  style="width:40%">
         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
       </div>
+    </div>
       <br><br>
 
 
@@ -180,8 +185,13 @@
                 $sql2="SELECT * FROM `bloodbank` WHERE `bb_name` LIKE '$bbname'";
                 $mysqli_result=mysqli_query($conn,$sql2);
                 $row=mysqli_fetch_assoc($mysqli_result);
-       
-                echo"<br>";
+                ?>
+                  <script>
+                    window.location='bblogin.php';
+                  </script>
+                <?php
+                // header('location:bblogin.php');
+                
                 echo'<div class="alert alert-success" role="alert">
                 <h4 class="alert-heading">Well done!</h4>
                 <p>you have successfully registered. </p>

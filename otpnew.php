@@ -89,7 +89,7 @@
        $body = "Your OTP is $num it is valid only for 2 mins thank you.";
        $sender = "From: Bloodbubble";
        if(mail($receiver, $subject, $body, $sender)){
-           echo "Email sent successfully to $receiver";
+          
        }else{
            echo "Sorry, failed while sending mail!";
        }

@@ -104,7 +104,7 @@
             <button class="btn btn-danger" type="submit" name="login">Login</button>
 
             <!-- Sign up link -->
-            <p class="register">Not a member? <a href="userform.php">Register here!</a></p>
+            <p class="register">Not a member? <a href="bloodbanklogin.php">Register here!</a></p>
 
         </div>
 

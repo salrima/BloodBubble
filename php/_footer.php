@@ -43,7 +43,7 @@
         <div class="clear"></div>
         <div class="social-icons">
             <ul class="footer_social_media">
-                <li><a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="facebook.com"><i class="fa-brands fa-facebook"></i></a></li>
                 <li><a href="twitter.com"><i class="fa-brands fa-twitter"></i></a></li>
                 <li><a href="instagram.com"><i class="fa-brands fa-instagram"></i></a></li>
 
@@ -58,3 +58,5 @@
     </div>
 </footer>
 <?php mysqli_close($database)?>
+<script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>

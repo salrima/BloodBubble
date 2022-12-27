@@ -22,6 +22,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/slides.css">
+    <link rel="stylesheet" href="css/blooddonationprocess.css">
     <SCRIPT src="drop.js"></SCRIPT>
     <SCRIPT src="slidesjs.js"></SCRIPT>
     <style>
@@ -138,7 +139,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-body btn-dark">
+                    <div class="card-body btn-secondary">
                         <h5 class="card-title btn-danger"><b>WANT BLOOD? NO WORRIES </b></h5>
                         <p class="card-text">Register and find blood stock in the nearby blood banks.</p>
                         <?php
@@ -173,7 +174,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="card ">
-                    <div class="card-body btn-dark">
+                    <div class="card-body btn-secondary">
                         <h5 class="card-title btn-danger">DONATE BLOOD,SAVE LIFE</h5>
                         <p class="card-text ">Check the eligibility criteria, donation process and register to donate blood
                         </p><?php
@@ -256,40 +257,95 @@
                 <div class="col-sm-12">
             <div class="card">
                 <div class="card-body"><br>
-                <a href="blooddonationprocess.php" style="margin-left:20%" class="btn btn-success">Click to know blood donation process</a>
-                <a href="blooddonationprocess.php" style="margin-left:10%" class="btn btn-success">Click to know the eligibility</a><br><br>
+                <a href="blooddonationprocess.php" style="margin-left:20%" class="btn btn-danger">Click to know blood donation process</a>
+                <a href="eligibilityview.php" style="margin-left:10%" class="btn btn-danger">Click to know the eligibility</a><br><br>
                 </div>
             </div>
-        </div><br><br>
-                <div class="slideshow-container" >
+        </div><br><br><br><br>
+               
+                <div class="Blooddonationprocess">
+            <p>BLOOD DONATION PROCESS</p>
+        </div>
+        <div class="reason">
+            <h1>Why it's done?</h1>
+            <p>Millions of people need blood transfusions each year. Some may need blood during surgery. Others depend on it after an accident or because they have a disease that requires certain parts of blood. Blood donation makes all of this possible. There is no substitute for human blood — all transfusions use blood from a donor.</p>
+        </div>
+        <div  class="registration" data-tilt data-tilt-scale="1.1">
+            <img src="images/registration.gif" style="width: 139px;
+    height: 98px;
+    border-radius: 48px;
+    position: absolute;
+    left: 25px;
+    top: 20px">
+            <h2>Registration</h2>
+           <h3>STEP 1</h3>
+            <p>The medical team goes over basic eligibility and donation information.</p>
+        </div>
 
-                <div class="mySlides" style="display:block">
-                <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
-                <p class="author">- John Keats</p>
-                </div>
+        <div  class="medicalhistory" data-tilt data-tilt-scale="1.1">
+            <img src="images/medicalhistory.gif" style="width: 139px;
+    height: 98px;
+    border-radius: 48px;
+    position: absolute;
+    left: 25px;
+    top: 20px ">
+            <h2>Medical History</h2>
+            <h3>STEP 2</h3>
+            <p>You will answer some questions about your health history.</p>
+        </div>
 
-                <div class="mySlides">
-                <q>But man is not made for defeat. A man can be destroyed but not defeated.</q>
-                <p class="author">- Ernest Hemingway</p>
-                </div>
+        <div  class="miniphysical" data-tilt data-tilt-scale="1.1">
+            <img src="images/stethoscope.gif" style="width: 139px;
+    height: 98px;
+    border-radius: 48px;
+    position: absolute;
+    left: 25px;
+    top: 20px;">
+            <h2>Mini Physical</h2>
+            <h3>STEP 3</h3>
+            <p>We will check your temperature,pulse,blood pressure etc present in a sample of blood.</p>
+        </div>
 
-                <div class="mySlides">
-                <q>I have not failed. I've just found 10,000 ways that won't work.</q>
-                <p class="author">- Thomas A. Edison</p>
-                </div>
+        <div  class="blooddonation" data-tilt data-tilt-scale="1.1">
+            <img src="images/blooddonation.gif" style="width: 139px;
+    height: 98px;
+    border-radius: 48px;
+    position: absolute;
+    left: 25px;
+    top: 20px;">
+            <h2>Blood Donation</h2>
+            <h3>STEP 4</h3>
+            <p>The actual donation takes about 8-10 minutes, during which you will be seated comfortably.</p>
+        </div>
+        <div class="slideshow-container" >
 
-                <a class="prev" onclick="plusSlides(-1)"></a>
-                <a class="next" onclick="plusSlides(1)"></a>
+<div class="mySlides" style="display:block">
+<p style="color:black;">How much Blood is taken?</p>
+<p class="author"style="color:red;">For a whole blood donation, approximately 0.5 L of blood is collected. For donations of other blood products, such as platelet or plasma, the amount collected depends on your height, weight and platelet count.</p>
+</div>
 
-                </div>
+<div class="mySlides">
+<p style="color:black;">If I have cold or flue can i donate blood?</p>
+<p class="author"style="color:red">No, blood centers require that you be in good health (symptom-free) and feeling well.</p>
+</div>
 
-                <div class="dot-container">
-                <span class="dot" onclick="currentSlide(1)"></span> 
-                <span class="dot" onclick="currentSlide(2)"></span> 
-                <span class="dot" onclick="currentSlide(3)"></span> 
-                </div>
+<div class="mySlides">
+<p style="color:black;">How long will the actual donation process takes?</p>
+<p class="author"style="color:red;">The entire donation process, from registration to post-donation refreshments, takes about one hour. The actual donation takes about 5-10 minutes.</p>
+</div>
+</div>
 
-        
+<a class="prev" onclick="plusSlides(-1)"></a>
+<a class="next" onclick="plusSlides(1)"></a>
+
+</div>
+
+<div class="dot-container">
+<span class="dot" onclick="currentSlide(1)"></span> 
+<span class="dot" onclick="currentSlide(2)"></span> 
+<span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
             <?php
         }
     ?>

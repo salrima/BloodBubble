@@ -154,7 +154,7 @@ if(mail($receiver, $subject, $body, $sender)){
   <div class="col-auto">
     <input type="date" name="dob" id="dob" class="form-control"\ required>
   </div>
-  <div class="col-auto">
+  <div class="col-auto" style="margin-left:9%">
     <label for="age" class="col-form-label">Age</label>
   </div>
   <div class="col-auto">
@@ -164,13 +164,13 @@ if(mail($receiver, $subject, $body, $sender)){
     </div><br><br>
     
     <div class="row g-3 align-items-center">
-  <div class="col-auto">
+  <div class="col-auto" style="margin-left:3%">
     <label for="city" class="col-form-label">City</label>
   </div>
   <div class="col-auto">
     <input type="text" name="city" id="city" class="form-control" required>
   </div>
-  <div class="col-auto">
+  <div class="col-auto" style="margin-left:4%">
     <label for="district" class="col-form-label">District</label>
   </div>
   <div class="col-auto">

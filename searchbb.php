@@ -72,21 +72,21 @@ session_start();
      </div>
 
      <br><br>
-    <div class="container "style="background-color:#FF6863; opacity:95%">
+    <div class="container "style="background-color:gray; opacity:95%">
     <h3 style="color:maroon;text-align:center">SEARCH A BLOOD BANK</h3>
     <form action="" method="post"><br>
       <div class="row g-3 align-items-center">
       <div class="col-auto" style="margin-left:90px">
-        <label for="district" class="col-form-label">District</label>
+        <label for="district" class="col-form-label" style="margin-left:10%">District</label>
       </div>
       <div class="col-auto">
         <input type="text" name="district" id="district" class="form-control" required >
       </div>
-      <div class="col-auto">
-        <label for="state" class="col-form-label">State</label>
+      <div class="col-auto"style="margin-left:10%">
+        <label for="state" class="col-form-label" >State</label>
       </div>
       <div class="col-auto">
-        <input type="text" name="state" id="state" class="form-control" required >
+        <input type="text" name="state" id="state"  class="form-control" required >
       </div>
  
       </div><br><br>
@@ -116,7 +116,7 @@ session_start();
             die("Sorry we failed to connect:". mysqli_connect_error());
           }
           else{
-            echo"Connection was successful<br>";
+        
             $sql="SELECT * FROM `bloodbank` WHERE `district` = '$district' AND `state` = '$state'";
             $result=mysqli_query($conn,$sql);
             
@@ -125,7 +125,7 @@ session_start();
             if(mysqli_num_rows($result)>0)
             {
                 ?>
-                <table class="table">
+                <table class="table table-danger table-striped-columns">
                 <thead>
                   <tr>
                     <th scope="col">Bloodbank Name</th>
@@ -159,7 +159,7 @@ session_start();
                  <td>
                   <form action="viewbb.php" method="post">
                     <input type="hidden" name="bloodbank" value=<?php echo $row['bloodbank_id'];?>>
-                    <input type="submit" value="Click Here">
+                    <input type="submit" class="btn btn-danger" value="Click Here">
                   </form>
                  </td>
                  </tr>
