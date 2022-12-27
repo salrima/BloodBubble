@@ -18,7 +18,7 @@ session_start();
     
     <SCRIPT src="drop.js"></SCRIPT>
     <!-- <link rel="stylesheet" href="css/login.css"> -->
-    <SCRIPT src="formvalidation.js" of the External file> 
+    <!-- <SCRIPT src="formvalidation.js" of the External file>  -->
     </SCRIPT>
     <title>User Registration</title>
 </head>
@@ -90,25 +90,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     
     <div class="container" style="background-color:gray; opacity:95%"><br>
     <h3 style="color:maroon;text-align:center">REGISTRATION FORM</h3>
-    <form action="" onsubmit="return validateReqFields(this)" method="post">
+
+  <form action="" id="userform" method="post">
     <div class="row g-3 align-items-center">
   <div class="col-auto">
     <label for="Fname" class="col-form-label">First name</label>
   </div>
   <div class="col-auto">
-    <input type="text" name="fname" id="fname" class="form-control" required >
+    <input type="text" name="fname" id="fname" class="form-control" onkeydown="return /[a-z]/i.test(event.key)" required >
   </div>
   <div class="col-auto">
     <label for="mname" class="col-form-label">Middle name</label>
   </div>
   <div class="col-auto">
-    <input type="text" name="mname" id="mname" class="form-control" >
+    <input type="text" name="mname" id="mname" onkeydown="return /[a-z]/i.test(event.key)" class="form-control" >
   </div>
   <div class="col-auto">
     <label for="lname" class="col-form-label">Last name</label>
   </div>
   <div class="col-auto">
-    <input type="text" name="lname" id="lname" class="form-control" required>
+    <input type="text" name="lname" id="lname" onkeydown="return /[a-z]/i.test(event.key)" class="form-control" required>
   </div>
 </div><br><br>
 <div class="row g-3 align-items-center">
@@ -119,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <input type="username" name="uname" id="username" class="form-control"required >
   </div>
   <div class="col-auto">
-    <label for="Password" class="col-form-label">Password   </label>
+    <label for="Password" class="col-form-label">Password</label>
   </div>
     
   <div class="col-auto" style="margin-left:2%">
@@ -168,19 +169,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <label for="city" class="col-form-label">City</label>
   </div>
   <div class="col-auto">
-    <input type="text" name="city" id="city" class="form-control" required>
+    <input type="text" name="city" id="city" onkeydown="return /[a-z]/i.test(event.key)" class="form-control" required>
   </div>
   <div class="col-auto" style="margin-left:4%">
     <label for="district" class="col-form-label">District</label>
   </div>
   <div class="col-auto">
-    <input type="text" name="district" id="district" class="form-control"\required>
+    <input type="text" name="district" id="district" onkeydown="return /[a-z]/i.test(event.key)" class="form-control"\required>
   </div>
   <div class="col-auto">
     <label for="state" class="col-form-label">State</label>
   </div>
   <div class="col-auto">
-    <input type="text" name="state" id="state" class="form-control"\required>
+    <input type="text" name="state" id="state" onkeydown="return /[a-z]/i.test(event.key)" class="form-control"\required>
   </div>
   
     </div><br><br>
@@ -210,6 +211,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
+        
+        <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="validationjQuery.js"></script>
 </body>
 
 </html>

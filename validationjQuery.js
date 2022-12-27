@@ -1,40 +1,89 @@
 $(document).ready(function(){
-    $('#AddressForm').validate({
+    $('#userform').validate({
         wrapper: 'div',
         errorLabelContainer: "#messageBox",
         errorClass: "error fail-alert",
         validClass: "valid success-alert",
         rules: {
-            hfno: {
+            fname: {
                 required: true,
             },
-            wname: {
+            lname: {
                 required: true,
             },
-            villcity: {
+            uname: {
                 required: true,
             },
-            taluka: {
+            pass: {
                 required: true,
+            },
+            email: {
+                required: true,
+                email: true,
+            },
+            mobileno: {
+                required: true,
+                number:true,
+                minlength:10,
+                // email: true,
+            },
+            gender: {
+                required: true,
+                // email: true,
+            },
+            dob: {
+                required: true,
+                // email: true,
+            },
+            age: {
+                required: true,
+                min:18,
+                // email: true,
+            },
+            city: {
+                required: true,
+                // email: true,
+            },
+            district: {
+                required: true,
+                // email: true,
             },
             state: {
                 required: true,
+                // email: true,
             },
-            pcode: {
+            pincode: {
                 required: true,
-                minlength: 6,
+                minlength: 6
             }
         },
         messages: {
-            hfno: 'Please enter your H.No/Flat No',
-            wname: 'Please enter your Ward Name',
-            villcity: 'Please enter your Village/City Name',
-            taluka: 'Please enter your Taluka',
-            state: 'Please enter your State',
-            pcode: {
-                required: 'Please enter your Pincode',
-                minlength: 'Pincode must be 6 digit long',
-            }
+            fname: 'Please enter your first name',
+            lname: 'Please enter your middle name',
+            uname: 'Please enter your user name',
+            pass: 'Please enter your password',
+            email: {
+                required: 'Please enter your email',
+                email: 'Enter a vaild email',
+            },
+            mobileno: {
+                required: 'Please enter your mobile number',
+                number:'Please enter a valid mobile number',
+                minlength: 'Please enter 10 Digit No',
+            },
+            gender: 'Please select your gender',
+            dob: 'Please enter your date of birth',
+            age: {
+                required: 'Please enter your age',
+                min:'You must be atleast 18',
+            },
+            city: 'Please enter your city',
+            district: 'Please enter your district',
+            state: 'Please enter your state',
+            pincode: {
+                required: 'Please enter your pincode',
+                minlength: 'Pincode must be of atleast 6 digits'
+            },
         },
         submitHandler: function(form) {
             form.submit();

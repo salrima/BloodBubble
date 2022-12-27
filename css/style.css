@@ -212,3 +212,26 @@ a{
     width: 97%;
     margin: 0;
   }
+
+  label.error.fail-alert {
+    border: 2px solid #c56464;
+    border-radius: 4px;
+    line-height: 1;
+    padding: 2px 0 6px 6px;
+    background: #f3aebc;
+    }
+    input.valid.success-alert {
+    border: 2px solid #4CAF50;
+    color: green;
+    }
+    /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
