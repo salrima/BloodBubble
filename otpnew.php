@@ -39,8 +39,6 @@
        if(isset($_POST['email']))
        {
            $email=$_POST['email'];
-         
-           
            $sql="SELECT * FROM `user` WHERE `Email` = '$email'";
            $result=mysqli_query($conn,$sql);
            
@@ -48,12 +46,10 @@
            {
             
                 $num=0;
-                $i=0;
-                while($i<6)
+                while(strlen((string)$num)!=6)
                 {
-                    $num=$num*10;
-                    $num=$num+rand(0,9);
-                    $i+=1;
+                    $num*=10;
+                    $num+=rand(0,9);
                 }
                 $receiver = "$email";
                 $subject = "OTP Verification";
@@ -64,8 +60,9 @@
                 }else{
                     echo "Sorry, failed while sending mail!";
                 }
-              $_SESSION['email']=$email;
+                $_SESSION['email']=$email;
                 $_SESSION['otp']=$num;
+                $_SESSION['time']=time();
                // echo "$uname";
             //    header('location: otpnew.php');
            }
@@ -77,24 +74,23 @@
        if(isset($_POST['resend']))
        {
             $num=0;
-            $i=0;
-            while($i<6)
-           {
-            $num*=10;
-            $num+=rand(0,9);
-            $i+=1;
-       }
-       $receiver = "$email";
-       $subject = "OTP Verification";
-       $body = "Your OTP is $num it is valid only for 2 mins thank you.";
-       $sender = "From: Bloodbubble";
-       if(mail($receiver, $subject, $body, $sender)){
-          
-       }else{
-           echo "Sorry, failed while sending mail!";
-       }
-       $_SESSION['otp']=$num;
-       header('location: otpnew.php');
+            while(strlen((string)$num)!=6)
+            {
+                $num*=10;
+                $num+=rand(0,9);
+            }
+            $receiver = "$email";
+            $subject = "OTP Verification";
+            $body = "Your OTP is $num it is valid only for 2 mins thank you.";
+            $sender = "From: Bloodbubble";
+            if(mail($receiver, $subject, $body, $sender)){
+                
+            }else{
+                echo "Sorry, failed while sending mail!";
+            }
+            $_SESSION['otp']=$num;
+            $_SESSION['time']=time();
+            header('location: otpnew.php');
         }
         
     } 

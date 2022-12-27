@@ -53,37 +53,37 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         die("Sorry we failed to connect:". mysqli_connect_error());
       }
       else{
-      
-        $sql="INSERT INTO `user`(`Fname`, `Mname`, `Lname`, `Username`, `Password`, `mobileno`, `Email`, `Gender`, `Age`, `Dob`, `City`, `State`, `Pincode`, `District`) VALUES ('$fname','$mname','$lname','$uname','$pass','$mobileno','$email','$gender','$age','$dob','$city','$state','$pincode','$district');";
+        $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+        $sql="INSERT INTO `user`(`Fname`, `Mname`, `Lname`, `Username`, `Password`, `mobileno`, `Email`, `Gender`, `Age`, `Dob`, `City`, `State`, `Pincode`, `District`) VALUES ('$fname','$mname','$lname','$uname','$hashed_password','$mobileno','$email','$gender','$age','$dob','$city','$state','$pincode','$district');";
         $result=mysqli_query($conn,$sql);
 
         if($result){
             $_SESSION['uname']=$uname;
            
             $receiver = $email;
-$subject = "Registration Successful";
-$body = "Thank you for registering with Blood Bubble";
-$sender = "From: Bloodbubble";
-if(mail($receiver, $subject, $body, $sender)){
-    echo "Email sent successfully to $receiver";
-}else{
-    echo "Sorry, failed while sending mail!";
-}
-           
-            echo'<div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>THANK YOU FOR REISTERING</strong> You have successfully registered.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>';
-      header('location: index.php');
-        }else{
-            echo"the record was noty inserted successfully--->".mysqli_error($conn);
-        }
-      }
-    }
+            $subject = "Registration Successful";
+            $body = "Thank you for registering with Blood Bubble";
+            $sender = "From: Bloodbubble";
+            if(mail($receiver, $subject, $body, $sender)){
+                echo "Email sent successfully to $receiver";
+            }else{
+                echo "Sorry, failed while sending mail!";
+            }
+                      
+                        echo'<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>THANK YOU FOR REISTERING</strong> You have successfully registered.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
+                  header('location: index.php');
+                    }else{
+                        echo"the record was noty inserted successfully--->".mysqli_error($conn);
+                    }
+                  }
+                }
 
-?>
+            ?>
 
-<?php include "php/_nav.php"?>
+            <?php include "php/_nav.php"?>
     
    
 

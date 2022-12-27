@@ -39,23 +39,31 @@ include "php/_connect.php";
     {
         echo $_SESSION['otp'];
         echo $_POST['otp'];
-        if($_SESSION['otp']!=$_POST['otp'])
-        {
-            echo"sorry the otp is wrong click on resend OTP";
+        if(time()-$_SESSION['time']<=120){
+            if($_SESSION['otp']!=$_POST['otp'])
+            {
+                echo"sorry the otp is wrong click on resend OTP";
+                header('location: otpnew.php');
+            }
+        }
+        else{
+            echo"OTP Expired";
             header('location: otpnew.php');
         }
+        
     }
-    if(isset($_SESSION['email'])&&isset($_POST['pswrd1']))
+    if(isset($_SESSION['email'])&& isset($_POST['pswrd1']))
         {
         $pss1=$_POST['pswrd1'];
         $pss2=$_POST['pswrd2'];
             if($pss1==$pss2)
             {
-       $sql= "UPDATE `user` SET `Password`='$pss1' WHERE `Email`='{$_SESSION['email']}';";
-       mysqli_query($conn,$sql);
-       header('location: login.php');
-}
-}
+                $hashed_password = password_hash($pss1, PASSWORD_DEFAULT);
+                $sql= "UPDATE `user` SET `Password`='$hashed_password' WHERE `Email`='{$_SESSION['email']}';";
+                mysqli_query($conn,$sql);
+                header('location: login.php');
+            }
+        }
    }
 ?>
   

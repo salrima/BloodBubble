@@ -32,9 +32,15 @@
                 if(mysqli_num_rows($result)==1)
                 {
                     $row=mysqli_fetch_assoc($result);
-                    $_SESSION['uname']=$uname;
-                    // echo "$uname";
-                    header('location: index.php');
+                    $hashed_password=$row['Password'];
+                    if(password_verify($pass, $hashed_password)){
+                        $_SESSION['uname']=$uname;
+                        // echo "$uname";
+                        header('location: index.php');
+                    }
+                    else{
+                        echo"login failed! ENTER VALID USERNAME AND PASSWORD";
+                    }
                 }
                 else{
                     echo"login failed! ENTER VALID USERNAME AND PASSWORD";
