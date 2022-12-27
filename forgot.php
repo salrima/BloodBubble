@@ -30,6 +30,47 @@
 </head>
 
 <body>
+    <?php
+        include "php/_connect.php";
+        if($_SERVER['REQUEST_METHOD'] == "POST")
+        {
+            if(isset($_POST['email']))
+            {
+                $email=$_POST['email'];
+                $sql="SELECT * FROM `user` WHERE `Email` = '$email'";
+                $result=mysqli_query($conn,$sql);
+                
+                if(mysqli_num_rows($result)==1)
+                {
+                     $num=0;
+                     while(strlen((string)$num)!=6)
+                     {
+                         $num*=10;
+                         $num+=rand(0,9);
+                     }
+                     $receiver = "$email";
+                     $subject = "OTP Verification";
+                     $body = "Your OTP is $num it is valid only for 2 mins thank you.";
+                     $sender = "From: Bloodbubble";
+                     if(mail($receiver, $subject, $body, $sender)){
+                        echo "Email sent successfully to $receiver";
+                        $_SESSION['email']=$email;
+                        $_SESSION['otp']=$num;
+                        $_SESSION['time']=time();
+                        // echo "$uname";
+                        header('location: otpnew.php');
+                     }else{
+                         echo "Sorry, failed while sending mail!";
+                     }
+                     
+                }
+                else{
+                    echo"Username doesn't exist";
+                    // header('location: forgot.php');
+                }
+            }
+         } 
+    ?>
   
    <div class="BACKG"> <img src="images/blood_types.jpg" height=100% width=100%> </div>
 
@@ -39,16 +80,13 @@
            <h3>DONAR LOGIN</h3>
        </div>
    </div>
-   <form action="otpnew.php" id="formLog" method="post">
+   <form action="" id="formLog" method="post">
        <!-- Main container for all inputs -->
        <div class="mainContainer">
            <!-- Username -->
            <label for="email">Email</label>
            <input class="inputType" type="email" placeholder="Enter Email" name="email" required>
-
            <br><br>
-
-
            <!-- Submit button -->
            <input type="submit" class="btn btn-danger" value="Send OTP" name="otp">
            

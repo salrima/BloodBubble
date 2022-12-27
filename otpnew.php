@@ -36,41 +36,30 @@
    include "php/_connect.php";
    if($_SERVER['REQUEST_METHOD'] == "POST")
    {
-       if(isset($_POST['email']))
-       {
-           $email=$_POST['email'];
-           $sql="SELECT * FROM `user` WHERE `Email` = '$email'";
-           $result=mysqli_query($conn,$sql);
-           
-           if(mysqli_num_rows($result)==1)
-           {
+        if(isset($_POST['submit']))
+        {
+            // echo $_SESSION['otp'];
+            // echo $_POST['otp'];
+            // echo time()-$_SESSION['time'];
+            // echo "<br>";
+
             
-                $num=0;
-                while(strlen((string)$num)!=6)
+            if(time()-$_SESSION['time']<=120){
+                if($_SESSION['otp']!=$_POST['otp'])
                 {
-                    $num*=10;
-                    $num+=rand(0,9);
+                    echo"sorry the otp is wrong click on resend OTP";
+                    // header('location: otpnew.php');
                 }
-                $receiver = "$email";
-                $subject = "OTP Verification";
-                $body = "Your OTP is $num it is valid only for 2 mins thank you.";
-                $sender = "From: Bloodbubble";
-                if(mail($receiver, $subject, $body, $sender)){
-                    echo "Email sent successfully to $receiver";
-                }else{
-                    echo "Sorry, failed while sending mail!";
+                else{
+                    header('location: resetp.php');
                 }
-                $_SESSION['email']=$email;
-                $_SESSION['otp']=$num;
-                $_SESSION['time']=time();
-               // echo "$uname";
-            //    header('location: otpnew.php');
-           }
-           else{
-               echo"Username doesn't exist";
-               header('location: forgot.php');
-           }
-       }
+            }
+            else{
+                echo"OTP Expired";
+                // header('location: otpnew.php');
+            }
+            
+        }
        if(isset($_POST['resend']))
        {
             $num=0;
@@ -84,13 +73,12 @@
             $body = "Your OTP is $num it is valid only for 2 mins thank you.";
             $sender = "From: Bloodbubble";
             if(mail($receiver, $subject, $body, $sender)){
-                
+                $_SESSION['otp']=$num;
+                $_SESSION['time']=time();
+                header('location: otpnew.php');
             }else{
                 echo "Sorry, failed while sending mail!";
             }
-            $_SESSION['otp']=$num;
-            $_SESSION['time']=time();
-            header('location: otpnew.php');
         }
         
     } 
@@ -103,7 +91,7 @@
            <h3>DONAR LOGIN</h3>
        </div>
    </div>
-   <form action="resetp.php" id="formLog" method="post">
+   <form action="" id="formLog" method="post">
        <!-- Main container for all inputs -->
        <div class="mainContainer">
            <!-- Username -->
@@ -144,7 +132,8 @@
                         alert('Timeout for otp');
                     }
 
-                    timer(120);
+                    timer(<?php echo 120-(int)(time()-$_SESSION['time']);?>);
+                    // timer(120);
 
                 </script>
 

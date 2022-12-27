@@ -35,23 +35,6 @@
 include "php/_connect.php";
    if($_SERVER['REQUEST_METHOD'] == "POST")
    {
-    if(isset($_POST['otp']))
-    {
-        echo $_SESSION['otp'];
-        echo $_POST['otp'];
-        if(time()-$_SESSION['time']<=120){
-            if($_SESSION['otp']!=$_POST['otp'])
-            {
-                echo"sorry the otp is wrong click on resend OTP";
-                header('location: otpnew.php');
-            }
-        }
-        else{
-            echo"OTP Expired";
-            header('location: otpnew.php');
-        }
-        
-    }
     if(isset($_SESSION['email'])&& isset($_POST['pswrd1']))
         {
         $pss1=$_POST['pswrd1'];
@@ -75,7 +58,7 @@ include "php/_connect.php";
            <h3>DONAR LOGIN</h3>
        </div>
    </div>
-   <form action="resetp.php" id="formLog" method="post">
+   <form action="" id="formLog" method="post">
        <!-- Main container for all inputs -->
        <div class="mainContainer">
            <!-- Username -->
