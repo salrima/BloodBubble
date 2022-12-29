@@ -90,7 +90,7 @@ $(document).ready(function(){
         }
     });
     
-    $('#ProfileForm').validate({
+    $('#formlog').validate({
         wrapper: 'div',
         errorLabelContainer: "#messageBox",
         errorClass: "error fail-alert",
@@ -151,7 +151,7 @@ $(document).ready(function(){
         },
         messages: {
             cardno: {
-                required: '<br/>Please enter the Card Number',
+                required: 'Please enter the Card Number',
                 minlength: 'Card Number must be 16 digit long',
             },
             cvv: {

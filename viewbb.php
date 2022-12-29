@@ -117,7 +117,7 @@ include "php/_connect.php";
       </div>
   </div><br><br>
 
-  <div class="row align-items-center" style="margin-left:30%">
+  <div class="row g-3 align-items-center" style="margin-left:30%">
     <div class="col-auto">
       <label for="dtype" class="col-form-label">Donation Type</label>
     </div>

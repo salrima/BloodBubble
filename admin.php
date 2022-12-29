@@ -159,7 +159,7 @@
                             }
                         }
                         else{
-                            echo "No Donor for the day JUST CHILL!!";
+                            echo "No Donor for the day";
                         }
                         
                     ?>
